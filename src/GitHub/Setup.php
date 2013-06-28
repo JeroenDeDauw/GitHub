@@ -7,8 +7,8 @@ class Setup {
 	protected $globals;
 	protected $rootDirectory;
 
-	public function __construct( $globals, $rootDirectory ) {
-		$this->globals = $globals;
+	public function __construct( &$globals, $rootDirectory ) {
+		$this->globals =& $globals;
 		$this->rootDirectory = $rootDirectory;
 	}
 
