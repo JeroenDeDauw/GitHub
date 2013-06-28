@@ -4,3 +4,4 @@
 
 !.gitignore
 !.gitreview
+!.travis.yml

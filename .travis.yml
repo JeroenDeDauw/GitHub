@@ -1,0 +1,13 @@
+language: php
+
+php:
+  - 5.3
+  - 5.4
+  - 5.5
+
+notifications:
+  email:
+    recipients:
+      - jeroendedauw@gmail.com
+    on_success: change
+    on_failure: always
