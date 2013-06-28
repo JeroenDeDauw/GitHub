@@ -24,7 +24,7 @@ class SetupTest extends \PHPUnit_Framework_TestCase {
 		$setup = new Setup( $inputGlobals, __DIR__ . '/..' );
 		$setup->run();
 
-
+		$this->assertTrue( true );
 	}
 
 }
