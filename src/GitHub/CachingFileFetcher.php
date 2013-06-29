@@ -4,6 +4,14 @@ namespace GitHub;
 
 use SimpleCache\Cache\Cache;
 
+/**
+ * @file
+ * @since 0.1
+ * @ingroup GitHub
+ *
+ * @licence GNU GPL v2+
+ * @author Jeroen De Dauw < jeroendedauw@gmail.com >
+ */
 class CachingFileFetcher implements FileFetcher {
 
 	protected $fileFetcher;

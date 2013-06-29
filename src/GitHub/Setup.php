@@ -2,6 +2,14 @@
 
 namespace GitHub;
 
+/**
+ * @file
+ * @since 0.1
+ * @ingroup GitHub
+ *
+ * @licence GNU GPL v2+
+ * @author Jeroen De Dauw < jeroendedauw@gmail.com >
+ */
 class Setup {
 
 	protected $globals;
@@ -41,7 +49,7 @@ class Setup {
 
 		$this->globals['wgHooks']['ParserFirstCallInit'][] = function( \Parser &$parser ) use ( $fileFetcher ) {
 			$hookHandler = new GitHubParserHook( $fileFetcher );
-			$parser->setFunctionHook( 'github', array( $hookHandler, 'render' ) );
+			$parser->setFunctionHook( 'github', array( $hookHandler, 'renderWithParser' ) );
 			return true;
 		};
 	}
