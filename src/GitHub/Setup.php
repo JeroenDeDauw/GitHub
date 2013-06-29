@@ -2,6 +2,10 @@
 
 namespace GitHub;
 
+use SimpleCache\Cache\CombinatoryCache;
+use SimpleCache\Cache\MediaWikiCache;
+use SimpleCache\Cache\SimpleInMemoryCache;
+
 /**
  * @file
  * @since 0.1
@@ -14,6 +18,7 @@ class Setup {
 
 	protected $globals;
 	protected $rootDirectory;
+	protected $defaultGitHubRepo = 'JeroenDeDauw/GitHub';
 
 	public function __construct( &$globals, $rootDirectory ) {
 		$this->globals =& $globals;
@@ -24,6 +29,7 @@ class Setup {
 		$this->registerExtensionCredits();
 		$this->registerMessageFiles();
 		$this->registerParserHookHandler();
+		$this->loadSettings();
 	}
 
 	protected function registerExtensionCredits() {
@@ -44,18 +50,35 @@ class Setup {
 		$this->globals['wgExtensionMessagesFiles']['GitHubMagic'] = $this->rootDirectory . '/GitHub.i18n.magic.php';
 	}
 
-	protected function registerParserHookHandler() {
-		$fileFetcher = $this->newFileFetcher();
+	protected function loadSettings() {
+		if ( array_key_exists( 'egGitHubDefaultRepo', $this->globals ) ) {
+			$this->defaultGitHubRepo = $this->globals['egGitHubDefaultRepo'];
+		}
+	}
 
-		$this->globals['wgHooks']['ParserFirstCallInit'][] = function( \Parser &$parser ) use ( $fileFetcher ) {
-			$hookHandler = new GitHubParserHook( $fileFetcher );
+	protected function registerParserHookHandler() {
+		$fileFetcherFactory = array( $this, 'newFileFetcher' );
+		$defaultGitHubRepo = $this->defaultGitHubRepo;
+
+		$this->globals['wgHooks']['ParserFirstCallInit'][] = function( \Parser &$parser ) use ( $fileFetcherFactory, $defaultGitHubRepo ) {
+			$hookHandler = new GitHubParserHook(
+				call_user_func( $fileFetcherFactory ),
+				$defaultGitHubRepo
+			);
+
 			$parser->setFunctionHook( 'github', array( $hookHandler, 'renderWithParser' ) );
 			return true;
 		};
 	}
 
 	protected function newFileFetcher() {
-		return new MediaWikiFileFetcher();
+		return new CachingFileFetcher(
+			new MediaWikiFileFetcher(),
+			new CombinatoryCache( array(
+				new SimpleInMemoryCache(),
+				new MediaWikiCache( wfGetMainCache() )
+			) )
+		);
 	}
 
 }
