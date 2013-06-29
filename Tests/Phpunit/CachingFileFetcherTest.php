@@ -53,4 +53,27 @@ class CachingFileFetcherTest extends \PHPUnit_Framework_TestCase {
 		$cachingFetcher->fetchFile( $fileUrl );
 	}
 
+	public function testGetFileWhenCached() {
+		$fileUrl = 'foo://bar';
+		$fileContents = 'NyanData across the sky!';
+
+		$fileFetcher = $this->getMock( 'GitHub\FileFetcher' );
+
+		$fileFetcher->expects( $this->never() )
+			->method( 'fetchFile' );
+
+		$cache = $this->getMock( 'SimpleCache\Cache\Cache' );
+
+		$cache->expects( $this->once() )
+			->method( 'get' )
+			->with( $fileUrl )
+			->will( $this->returnValue( $fileContents ) );
+
+		$cache->expects( $this->never() )
+			->method( 'set' );
+
+		$cachingFetcher = new CachingFileFetcher( $fileFetcher, $cache );
+		$cachingFetcher->fetchFile( $fileUrl );
+	}
+
 }
