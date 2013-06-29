@@ -51,6 +51,8 @@ spl_autoload_register( function ( $className ) {
 // @codeCoverageIgnoreEnd
 
 if ( defined( 'MEDIAWIKI' ) ) {
-	$setup = new \GitHub\Setup( $GLOBALS, __DIR__ );
-	$setup->run();
+	$wgExtensionFunctions[] = function() {
+		$setup = new \GitHub\Setup( $GLOBALS, __DIR__ );
+		$setup->run();
+	};
 }

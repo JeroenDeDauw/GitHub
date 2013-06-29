@@ -35,3 +35,13 @@ Installation without composer
 If you install without composer, simply include the entry point file. You are then
 responsible for loading all dependencies of this component before including the
 entry point, and can do this in whatever way you see fit.
+
+Configuration
+=============
+
+Default GitHub repository
+-------------------------
+
+The default default GitHub repository is JeroenDeDauw/GitHub. You can change the default
+repository by assigning its name to the global 'egGitHubDefaultRepo'. This needs to be
+done before the inclusion of

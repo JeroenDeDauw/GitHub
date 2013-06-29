@@ -40,7 +40,7 @@ class Setup {
 			'author' => array(
 				'[https://www.mediawiki.org/wiki/User:Jeroen_De_Dauw Jeroen De Dauw]',
 			),
-			'url' => 'https://www.mediawiki.org/wiki/Extension:GitHub',
+			'url' => 'https://github.com/JeroenDeDauw/GitHub',
 			'descriptionmsg' => 'github-desc'
 		);
 	}
