@@ -37,10 +37,17 @@ class Setup {
 	}
 
 	protected function registerParserHookHandler() {
-		$this->globals['wgHooks']['ParserFirstCallInit'][] = function( \Parser &$parser ) {
-			$hookHandler = new GitHubParserHook();
+		$fileFetcher = $this->newFileFetcher();
+
+		$this->globals['wgHooks']['ParserFirstCallInit'][] = function( \Parser &$parser ) use ( $fileFetcher ) {
+			$hookHandler = new GitHubParserHook( $fileFetcher );
 			$parser->setFunctionHook( 'github', array( $hookHandler, 'render' ) );
+			return true;
 		};
+	}
+
+	protected function newFileFetcher() {
+		return new MediaWikiFileFetcher();
 	}
 
 }

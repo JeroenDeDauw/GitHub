@@ -12,6 +12,18 @@ if ( defined( 'GitHub_VERSION' ) ) {
 	return;
 }
 
+if ( !defined( 'SimpleCache_VERSION' ) && is_readable( __DIR__ . '/vendor/autoload.php' ) ) {
+	include_once( __DIR__ . '/vendor/autoload.php' );
+}
+
+if ( !defined( 'SimpleCache_VERSION' ) && is_readable( __DIR__ . '/../SimpleCache/SimpleCache.php' ) ) {
+	include_once( __DIR__ . '/../SimpleCache/SimpleCache.php' );
+}
+
+if ( !defined( 'SimpleCache_VERSION' ) ) {
+	throw new Exception( 'You need to have the SimpleCache library loaded in order to use GitHub' );
+}
+
 define( 'GitHub_VERSION', '0.1' );
 
 // @codeCoverageIgnoreStart
