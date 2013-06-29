@@ -34,7 +34,7 @@ class Setup {
 
 	protected function registerExtensionCredits() {
 		$this->globals['wgExtensionCredits']['other'][] = array(
-			'path' => __FILE__,
+			'path' => $this->rootDirectory . '/GitHub.php',
 			'name' => 'GitHub',
 			'version' => GitHub_VERSION,
 			'author' => array(
