@@ -12,18 +12,18 @@ if ( defined( 'GitHub_VERSION' ) ) {
 	return;
 }
 
-define( 'GitHub_VERSION', '0.1' );
+define( 'GitHub_VERSION', '1.0 alpha' );
 
-if ( !defined( 'SimpleCache_VERSION' ) && is_readable( __DIR__ . '/vendor/autoload.php' ) ) {
+if ( !defined( 'FileFetcher_VERSION' ) && is_readable( __DIR__ . '/vendor/autoload.php' ) ) {
 	include_once( __DIR__ . '/vendor/autoload.php' );
 }
 
-if ( !defined( 'SimpleCache_VERSION' ) && is_readable( __DIR__ . '/../SimpleCache/SimpleCache.php' ) ) {
-	include_once( __DIR__ . '/../SimpleCache/SimpleCache.php' );
+if ( !defined( 'FileFetcher_VERSION' ) && is_readable( __DIR__ . '/../FileFetcher/FileFetcher.php' ) ) {
+	include_once( __DIR__ . '/../FileFetcher/FileFetcher.php' );
 }
 
-if ( !defined( 'SimpleCache_VERSION' ) ) {
-	throw new Exception( 'You need to have the SimpleCache library loaded in order to use GitHub' );
+if ( !defined( 'FileFetcher_VERSION' ) ) {
+	throw new Exception( 'You need to have the FileFetcher library loaded in order to use GitHub' );
 }
 
 // @codeCoverageIgnoreStart

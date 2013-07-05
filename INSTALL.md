@@ -3,7 +3,8 @@ Installation of the GitHub MediaWiki extension
 
 GitHub has the following dependencies:
 
-* [SimpleCache](https://github.com/JeroenDeDauw/SimpleCache) 0.1 or later
+* [SimpleCache](https://github.com/JeroenDeDauw/SimpleCache) 1.0 or later
+* [FileFetcher](https://github.com/JeroenDeDauw/FileFetcher) 1.0 or later
 * [MediaWiki](https://www.mediawiki.org/) 1.16 or later
 
 And nothing else.

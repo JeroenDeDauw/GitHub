@@ -18,7 +18,8 @@
 	],
 	"require": {
 		"php": ">=5.3.0",
-		"jeroen-de-dauw/simple-cache": "*"
+		"jeroen-de-dauw/simple-cache": "1.*",
+		"jeroen-de-dauw/file-fetcher": "1.*"
 	},
 	"minimum-stability" : "dev",
 	"autoload": {
