@@ -5,3 +5,6 @@
 !.gitignore
 !.gitreview
 !.travis.yml
+
+vendor/
+composer.lock
