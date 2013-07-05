@@ -2,6 +2,8 @@
 
 namespace GitHub;
 
+use FileFetcher\FileFetcher;
+
 /**
  * @file
  * @since 0.1

@@ -21,7 +21,7 @@ class GitHubParserHookTest extends \PHPUnit_Framework_TestCase {
 	public function testRender() {
 		$fileContents = 'foo bar baz';
 
-		$fileFetcher = $this->getMock( 'GitHub\FileFetcher' );
+		$fileFetcher = $this->getMock( 'FileFetcher\FileFetcher' );
 
 		$fileFetcher->expects( $this->once() )
 			->method( 'fetchFile' )

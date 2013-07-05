@@ -2,6 +2,7 @@
 
 namespace GitHub;
 
+use FileFetcher\CachingFileFetcher;
 use SimpleCache\Cache\CombinatoryCache;
 use SimpleCache\Cache\MediaWikiCache;
 use SimpleCache\Cache\SimpleInMemoryCache;
