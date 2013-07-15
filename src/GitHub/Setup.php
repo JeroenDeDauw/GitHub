@@ -27,10 +27,11 @@ class Setup {
 	}
 
 	public function run() {
+		$this->loadSettings();
+
 		$this->registerExtensionCredits();
 		$this->registerMessageFiles();
 		$this->registerParserHookHandler();
-		$this->loadSettings();
 	}
 
 	protected function registerExtensionCredits() {
