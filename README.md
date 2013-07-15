@@ -38,6 +38,12 @@ You can find a list of the dependencies in the "require" section of the composer
 Load all dependencies and the load the GitHub library by including its entry point:
 GitHub.php.
 
+## Release notes
+
+### 1.0 (2013-07-15)
+
+* Initial release
+
 ## Links
 
 * [GitHub on Packagist](https://packagist.org/packages/jeroen-de-dauw/mediawiki-github)
