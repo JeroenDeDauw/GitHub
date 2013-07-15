@@ -72,7 +72,7 @@ class Setup {
 		};
 	}
 
-	protected function newFileFetcher() {
+	public function newFileFetcher() {
 		return new CachingFileFetcher(
 			new MediaWikiFileFetcher(),
 			new CombinatoryCache( array(
