@@ -42,6 +42,21 @@ You can find a list of the dependencies in the "require" section of the composer
 Load all dependencies and the load the GitHub library by including its entry point:
 GitHub.php.
 
+## Configuration
+
+The default GitHub repo can be set using the $egGitHubDefaultRepo setting. Assign to this setting
+the name of the default repo in your LocalSettings file, after the inclusion of this extension as
+follows:
+
+    $egGitHubDefaultRepo = 'wikimedia/mediawiki-extensions-SemanticMediaWiki';
+
+## Usage
+
+Add {{#github:FileName}} to your wiki page, where FileName is the name of the file you want to embed.
+This can include a path, for instance {{#github:docs/INSTALL.md}}.
+
+You can also specify the repo name and the branch name: {{#github:FileName|user/repo|branchName}}
+
 ## Release notes
 
 ### 1.0 (2013-07-15)
