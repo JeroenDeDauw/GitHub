@@ -1,6 +1,6 @@
 <phpunit backupGlobals="false"
          backupStaticAttributes="false"
-         bootstrap="Tests/bootstrap.php"
+         bootstrap="tests/bootstrap.php"
          cacheTokens="false"
          colors="true"
          convertErrorsToExceptions="true"
@@ -13,8 +13,11 @@
          strict="true"
          verbose="true">
     <testsuites>
-        <testsuite name="GitHub">
-            <directory>Tests/Phpunit</directory>
+        <testsuite name="GitHubStandalone">
+            <directory>tests/unit</directory>
+        </testsuite>
+        <testsuite name="GitHubSystem">
+            <directory>tests/system</directory>
         </testsuite>
     </testsuites>
 </phpunit>

@@ -12,7 +12,7 @@ if ( defined( 'GitHub_VERSION' ) ) {
 	return 1;
 }
 
-define( 'GitHub_VERSION', '1.0' );
+define( 'GitHub_VERSION', '1.1' );
 
 // @codeCoverageIgnoreStart
 spl_autoload_register( function ( $className ) {

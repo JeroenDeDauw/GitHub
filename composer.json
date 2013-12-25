@@ -4,7 +4,8 @@
 	"description": "Simple MediaWiki extension that allows embedding the content of files hosted in GitHub git repositories",
 	"keywords": [
 		"github",
-		"mediawiki"
+		"mediawiki",
+		"markdown"
 	],
 	"homepage": "https://github.com/JeroenDeDauw/GitHub",
 	"license": "GPL-2.0+",
@@ -25,6 +26,9 @@
 	"autoload": {
 		"files" : [
 			"GitHub.php"
+		],
+		"classmap": [
+			"tests/"
 		]
 	}
 }

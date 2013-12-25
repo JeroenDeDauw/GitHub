@@ -2,6 +2,7 @@
 
 namespace GitHub;
 
+use dflydev\markdown\MarkdownExtraParser;
 use FileFetcher\FileFetcher;
 
 /**
@@ -14,6 +15,10 @@ class GitHubParserHook {
 	protected $gitHubUrl;
 	protected $defaultGitHubRepo;
 
+	protected $fileName;
+	protected $repoName;
+	protected $branchName;
+
 	/**
 	 * @param FileFetcher $fileFetcher
 	 * @param string $defaultGitHubRepo
@@ -25,23 +30,54 @@ class GitHubParserHook {
 		$this->defaultGitHubRepo = $defaultGitHubRepo;
 	}
 
-	public function render( $fileName = '', $repoName = '', $branchName = '' ) {
-		$fileUrl = $this->getFileUrl( $fileName, $repoName, $branchName );
-		return $this->fileFetcher->fetchFile( $fileUrl );
-	}
-
 	public function renderWithParser( \Parser $parser, $fileName = '', $repoName = '', $branchName = '' ) {
 		return $this->render( $fileName, $repoName, $branchName );
 	}
 
-	protected function getFileUrl( $fileName, $repoName, $branchName ) {
+	public function render( $fileName = '', $repoName = '', $branchName = '' ) {
+		$this->fileName = $fileName === '' ? 'README.md' : $fileName;
+		$this->branchName = $branchName === '' ? 'master' : $branchName;
+		$this->repoName = $repoName === '' ? $this->defaultGitHubRepo : $repoName;
+
+		return $this->getTransformedContent();
+	}
+
+	protected function getTransformedContent() {
+		$content = $this->getFileContent();
+
+		if ( $this->isMarkdownFile() ) {
+			$content = $this->renderAsMarkdown( $content );
+		}
+
+		return $content;
+	}
+
+	protected function getFileContent() {
+		return $this->fileFetcher->fetchFile( $this->getFileUrl() );
+	}
+
+	protected function getFileUrl() {
 		return sprintf(
 			'%s/%s/%s/%s',
 			$this->gitHubUrl,
-			$repoName === '' ? $this->defaultGitHubRepo : $repoName,
-			$branchName === '' ? 'master' : $branchName,
-			$fileName === '' ? 'README.md' : $fileName
+			$this->repoName,
+			$this->branchName,
+			$this->fileName
 		);
+	}
+
+	protected function isMarkdownFile() {
+		return $this->fileHasExtension( 'md' ) || $this->fileHasExtension( 'markdown' );
+	}
+
+	protected function fileHasExtension( $extension ) {
+		$fullExtension = '.' . $extension;
+		return substr( $this->fileName, -strlen( $fullExtension ) ) === $fullExtension;
+	}
+
+	protected function renderAsMarkdown( $content ) {
+		$markdownParser = new MarkdownExtraParser();
+		return $markdownParser->transform( $content );
 	}
 
 }
