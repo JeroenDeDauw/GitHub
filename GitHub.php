@@ -9,22 +9,10 @@
 
 if ( defined( 'GitHub_VERSION' ) ) {
 	// Do not initialize more than once.
-	return ;
+	return 1;
 }
 
 define( 'GitHub_VERSION', '1.0' );
-
-if ( !defined( 'FileFetcher_VERSION' ) && is_readable( __DIR__ . '/vendor/autoload.php' ) ) {
-	include_once( __DIR__ . '/vendor/autoload.php' );
-}
-
-if ( !defined( 'FileFetcher_VERSION' ) && is_readable( __DIR__ . '/../FileFetcher/FileFetcher.php' ) ) {
-	include_once( __DIR__ . '/../FileFetcher/FileFetcher.php' );
-}
-
-if ( !defined( 'FileFetcher_VERSION' ) ) {
-	throw new Exception( 'You need to have the FileFetcher library loaded in order to use GitHub' );
-}
 
 // @codeCoverageIgnoreStart
 spl_autoload_register( function ( $className ) {
@@ -52,6 +40,18 @@ spl_autoload_register( function ( $className ) {
 
 if ( defined( 'MEDIAWIKI' ) ) {
 	$wgExtensionFunctions[] = function() {
+		if ( !defined( 'FileFetcher_VERSION' ) && is_readable( __DIR__ . '/vendor/autoload.php' ) ) {
+			include_once( __DIR__ . '/vendor/autoload.php' );
+		}
+
+		if ( !defined( 'FileFetcher_VERSION' ) && is_readable( __DIR__ . '/../FileFetcher/FileFetcher.php' ) ) {
+			include_once( __DIR__ . '/../FileFetcher/FileFetcher.php' );
+		}
+
+		if ( !defined( 'FileFetcher_VERSION' ) ) {
+			throw new Exception( 'You need to have the FileFetcher library loaded in order to use GitHub' );
+		}
+
 		$setup = new \GitHub\Setup( $GLOBALS, __DIR__ );
 		$setup->run();
 	};
