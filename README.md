@@ -18,6 +18,46 @@ Packagist status:
 
 ## Installation
 
+The recommended way to install the GitHub extension is with [Composer](http://getcomposer.org) using
+[MediaWiki 1.22 built-in support for Composer](https://www.mediawiki.org/wiki/Composer). MediaWiki
+versions prior to 1.22 can use Composer via the
+[Extension Installer](https://github.com/JeroenDeDauw/ExtensionInstaller/blob/master/README.md)
+extension.
+
+##### Step 1
+
+If you have MediaWiki 1.22 or later, go to the root directory of your MediaWiki installation,
+and go to step 2. You do not need to install any extensions to support composer.
+
+For MediaWiki 1.21.x and earlier you need to install the
+[Extension Installer](https://github.com/JeroenDeDauw/ExtensionInstaller/blob/master/README.md) extension.
+
+Once you are done installing the Extension Installer, go to its directory so composer.phar
+is installed in the right place.
+
+    cd extensions/ExtensionInstaller
+
+##### Step 2
+
+If you have previously installed Composer skip to step 3.
+
+To install Composer:
+
+    wget http://getcomposer.org/composer.phar
+
+##### Step 3
+    
+Now using Composer, install Semantic MediaWiki.
+
+If you do not have a composer.json file yet, copy the composer-example.json file to composer.json. If you
+are using the ExtensionInstaller, the file to copy will be named example.json, rather than composer-example.json. When this is done, run:
+    
+    php composer.phar require mediawiki/sub-page-list "*"
+
+##### Verify installation success
+
+Go to Special:Version and see if GitHub is listed there. If it is, you successfully installed it!
+
 ## Configuration
 
 The default GitHub repo can be set using the $egGitHubDefaultRepo setting. Assign to this setting
