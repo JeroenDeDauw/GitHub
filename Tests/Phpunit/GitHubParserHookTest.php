@@ -7,12 +7,6 @@ use GitHub\GitHubParserHook;
 /**
  * @covers GitHub\GitHubParserHook
  *
- * @file
- * @since 0.1
- *
- * @ingroup GitHub
- * @group GitHub
- *
  * @licence GNU GPL v2+
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */

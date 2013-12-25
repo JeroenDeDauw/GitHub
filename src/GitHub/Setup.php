@@ -8,10 +8,6 @@ use SimpleCache\Cache\MediaWikiCache;
 use SimpleCache\Cache\SimpleInMemoryCache;
 
 /**
- * @file
- * @since 0.1
- * @ingroup GitHub
- *
  * @licence GNU GPL v2+
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */

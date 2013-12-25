@@ -3,11 +3,6 @@
 /**
  * Test class autoloader for the GitHub library.
  *
- * @since 0.1
- *
- * @file
- * @ingroup GitHub
- *
  * @licence GNU GPL v2+
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */

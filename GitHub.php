@@ -1,15 +1,15 @@
 <?php
 
-
 /**
- * This documentation group collects source code files belonging to the GitHub extension.
+ * Entry point of the GitHub extension.
  *
- * @defgroup GitHub GitHub
+ * @licence GNU GPL v2+
+ * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
 
 if ( defined( 'GitHub_VERSION' ) ) {
-	// Do not initialize more then once.
-	return;
+	// Do not initialize more than once.
+	return ;
 }
 
 define( 'GitHub_VERSION', '1.0' );
