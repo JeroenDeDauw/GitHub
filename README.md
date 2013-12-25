@@ -35,7 +35,7 @@ You can also specify the repo name and the branch name: {{#github:FileName|user/
 
 ## Release notes
 
-### 2.0 (2013-12-25)
+### 2.0 (under development)
 
 #### New features
 
