@@ -4,6 +4,7 @@ Simple MediaWiki extension that allows embedding the content of files hosted in 
 
 TravisCI status:
 [![Build Status](https://secure.travis-ci.org/JeroenDeDauw/GitHub.png?branch=master)](http://travis-ci.org/JeroenDeDauw/GitHub)
+[![Scrutinizer Quality Score](https://scrutinizer-ci.com/g/JeroenDeDauw/GitHub/badges/quality-score.png?s=b928c81a24ec2d8fcf6dd2b291b41c76ef528dbe)](https://scrutinizer-ci.com/g/JeroenDeDauw/GitHub/)
 
 Packagist status:
 [![Latest Stable Version](https://poser.pugx.org/jeroen-de-dauw/mediawiki-github/version.png)](https://packagist.org/packages/jeroen-de-dauw/mediawiki-github)
@@ -16,30 +17,6 @@ Packagist status:
 * Installation via [Composer](http://getcomposer.org/)
 
 ## Installation
-
-You can use [Composer](http://getcomposer.org/) to download and install
-this package as well as its dependencies. Alternatively you can simply clone
-the git repository and take care of loading yourself.
-
-### Composer
-
-To add this package as a local, per-project dependency to your project, simply add a
-dependency on `jeroen-de-dauw/mediawiki-github` to your project's `composer.json` file.
-Here is a minimal example of a `composer.json` file that just defines a dependency on
-GitHub 1.0:
-
-    {
-        "require": {
-            "jeroen-de-dauw/mediawiki-github": "1.0.*"
-        }
-    }
-
-### Manual
-
-Get the GitHub code, either via git, or some other means. Also get all dependencies.
-You can find a list of the dependencies in the "require" section of the composer.json file.
-Load all dependencies and the load the GitHub library by including its entry point:
-GitHub.php.
 
 ## Configuration
 
@@ -57,6 +34,22 @@ This can include a path, for instance {{#github:docs/INSTALL.md}}.
 You can also specify the repo name and the branch name: {{#github:FileName|user/repo|branchName}}
 
 ## Release notes
+
+### 2.0 (2013-12-25)
+
+#### New features
+
+* Added support for markdown. Files ending on .md or .markdown are now rendered appropriately.
+
+#### Compatibility changes
+
+* The extension now needs to be installed via Composer.
+
+#### Enhancements
+
+* PSR-0 based autoloading is now used
+* The ParserHooks library is now used for the github parser hook
+* Additional tests have been added
 
 ### 1.0 (2013-07-15)
 

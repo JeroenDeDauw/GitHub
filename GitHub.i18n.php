@@ -15,6 +15,10 @@ $messages = array();
  */
 $messages['en'] = array(
 	'github-desc' => 'Allows embedding the contents of files from [https://www.github.com/ GitHub]',
+
+	'github-par-filename' => 'File name',
+	'github-par-branchname' => 'Branch name',
+	'github-par-reponame' => 'Repository name',
 );
 
 /** Message documentation (Message documentation)

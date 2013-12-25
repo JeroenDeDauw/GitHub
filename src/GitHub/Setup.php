@@ -3,6 +3,10 @@
 namespace GitHub;
 
 use FileFetcher\CachingFileFetcher;
+use ParserHooks\FunctionRunner;
+use ParserHooks\HookDefinition;
+use ParserHooks\HookRegistrant;
+use ParserHooks\HookRunner;
 use SimpleCache\Cache\CombinatoryCache;
 use SimpleCache\Cache\MediaWikiCache;
 use SimpleCache\Cache\SimpleInMemoryCache;
@@ -55,16 +59,21 @@ class Setup {
 	}
 
 	protected function registerParserHookHandler() {
-		$fileFetcherFactory = array( $this, 'newFileFetcher' );
-		$defaultGitHubRepo = $this->defaultGitHubRepo;
+		$self = $this;
 
-		$this->globals['wgHooks']['ParserFirstCallInit'][] = function( \Parser &$parser ) use ( $fileFetcherFactory, $defaultGitHubRepo ) {
-			$hookHandler = new GitHubParserHook(
-				call_user_func( $fileFetcherFactory ),
-				$defaultGitHubRepo
+		$this->globals['wgHooks']['ParserFirstCallInit'][] = function( \Parser &$parser ) use ( $self ) {
+			$hookRegistrant = new HookRegistrant( $parser );
+
+			$hookRegistrant->registerFunction(
+				new FunctionRunner(
+					$self->getGitHubHookDefinition(),
+					$self->getGitHubHookHandler(),
+					array(
+						FunctionRunner::OPT_DO_PARSE => false
+					)
+				)
 			);
 
-			$parser->setFunctionHook( 'github', array( $hookHandler, 'renderWithParser' ) );
 			return true;
 		};
 	}
@@ -76,6 +85,41 @@ class Setup {
 				new SimpleInMemoryCache(),
 				new MediaWikiCache( wfGetMainCache() )
 			) )
+		);
+	}
+
+	/**
+	 * @since 1.0
+	 *
+	 * @return HookDefinition
+	 */
+	public function getGitHubHookDefinition() {
+		return new HookDefinition(
+			'github',
+			array(
+				'file' => array(
+					'default' => 'README.md',
+					'aliases' => 'filename',
+					'message' => 'github-par-filename',
+				),
+				'repo' => array(
+					'default' => $this->defaultGitHubRepo,
+					'aliases' => 'reponame',
+					'message' => 'github-par-reponame',
+				),
+				'branch' => array(
+					'default' => 'master',
+					'aliases' => 'branchname',
+					'message' => 'github-par-branchname',
+				),
+			),
+			array( 'file', 'repo', 'branch' )
+		);
+	}
+
+	public function getGitHubHookHandler() {
+		return new GitHubParserHook(
+			$this->newFileFetcher()
 		);
 	}
 

@@ -4,16 +4,18 @@ namespace GitHub;
 
 use dflydev\markdown\MarkdownExtraParser;
 use FileFetcher\FileFetcher;
+use ParamProcessor\ProcessingResult;
+use Parser;
+use ParserHooks\HookHandler;
 
 /**
  * @licence GNU GPL v2+
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
-class GitHubParserHook {
+class GitHubParserHook implements HookHandler {
 
 	protected $fileFetcher;
 	protected $gitHubUrl;
-	protected $defaultGitHubRepo;
 
 	protected $fileName;
 	protected $repoName;
@@ -21,28 +23,28 @@ class GitHubParserHook {
 
 	/**
 	 * @param FileFetcher $fileFetcher
-	 * @param string $defaultGitHubRepo
 	 * @param string $gitHubUrl
 	 */
-	public function __construct( FileFetcher $fileFetcher, $defaultGitHubRepo, $gitHubUrl = 'https://raw.github.com' ) {
+	public function __construct( FileFetcher $fileFetcher, $gitHubUrl = 'https://raw.github.com' ) {
 		$this->fileFetcher = $fileFetcher;
 		$this->gitHubUrl = $gitHubUrl;
-		$this->defaultGitHubRepo = $defaultGitHubRepo;
 	}
 
-	public function renderWithParser( \Parser $parser, $fileName = '', $repoName = '', $branchName = '' ) {
-		return $this->render( $fileName, $repoName, $branchName );
+	public function handle( Parser $parser, ProcessingResult $result ) {
+		$this->setFields( $result );
+
+		return $this->getRenderedContent();
 	}
 
-	public function render( $fileName = '', $repoName = '', $branchName = '' ) {
-		$this->fileName = $fileName === '' ? 'README.md' : $fileName;
-		$this->branchName = $branchName === '' ? 'master' : $branchName;
-		$this->repoName = $repoName === '' ? $this->defaultGitHubRepo : $repoName;
+	protected function setFields( ProcessingResult $result ) {
+		$params = $result->getParameters();
 
-		return $this->getTransformedContent();
+		$this->fileName = $params['file']->getValue();
+		$this->repoName = $params['repo']->getValue();
+		$this->branchName = $params['branch']->getValue();
 	}
 
-	protected function getTransformedContent() {
+	protected function getRenderedContent() {
 		$content = $this->getFileContent();
 
 		if ( $this->isMarkdownFile() ) {
