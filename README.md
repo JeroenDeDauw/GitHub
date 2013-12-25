@@ -13,8 +13,7 @@ Packagist status:
 
 * [PHP](http://www.php.net) 5.3 or later
 * [MediaWiki](https://www.mediawiki.org) 1.16 or later
-* [SimpleCache](https://github.com/JeroenDeDauw/SimpleCache) 1.0 or later
-* [FileFetcher](https://github.com/JeroenDeDauw/FileFetcher) 1.0 or later
+* Installation via [Composer](http://getcomposer.org/)
 
 ## Installation
 
