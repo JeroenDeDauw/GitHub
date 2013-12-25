@@ -19,7 +19,7 @@ if ( is_readable( __DIR__ . '/vendor/autoload.php' ) ) {
 }
 
 if ( defined( 'MEDIAWIKI' ) ) {
-	$wgExtensionFunctions[] = function() {
+	$GLOBALS['wgExtensionFunctions'][] = function() {
 		$setup = new \GitHub\Setup( $GLOBALS, __DIR__ );
 		$setup->run();
 	};
