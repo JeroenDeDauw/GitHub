@@ -22,7 +22,6 @@
 		"jeroen-de-dauw/file-fetcher": "1.*",
 		"dflydev/markdown": "1.*,>=1.0.3"
 	},
-	"minimum-stability" : "dev",
 	"autoload": {
 		"files" : [
 			"GitHub.php"
