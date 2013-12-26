@@ -52,7 +52,7 @@ Now using Composer, install Semantic MediaWiki.
 If you do not have a composer.json file yet, copy the composer-example.json file to composer.json. If you
 are using the ExtensionInstaller, the file to copy will be named example.json, rather than composer-example.json. When this is done, run:
     
-    php composer.phar require mediawiki/sub-page-list "*"
+    php composer.phar require jeroen-de-dauw/mediawiki-github "@dev"
 
 ##### Verify installation success
 
