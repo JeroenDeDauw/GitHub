@@ -75,7 +75,7 @@ You can also specify the repo name and the branch name: {{#github:FileName|user/
 
 ## Release notes
 
-### 0.2 (under development)
+### 1.0 (under development)
 
 #### New features
 
