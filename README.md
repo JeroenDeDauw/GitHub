@@ -60,9 +60,9 @@ Go to Special:Version and see if GitHub is listed there. If it is, you successfu
 
 ## Configuration
 
-The default GitHub repo can be set using the $egGitHubDefaultRepo setting. Assign to this setting
-the name of the default repo in your LocalSettings file, after the inclusion of this extension as
-follows:
+The default GitHub repo can be set using the `$egGitHubDefaultRepo` setting. Assign to this setting
+the name of the default repo in your LocalSettings file, after the inclusion of this extension e.g.
+for Semantic MediaWiki as follows:
 
     $egGitHubDefaultRepo = 'wikimedia/mediawiki-extensions-SemanticMediaWiki';
 
@@ -75,7 +75,7 @@ You can also specify the repo name and the branch name: {{#github:FileName|user/
 
 ## Release notes
 
-### 2.0 (under development)
+### 1.0 (under development)
 
 #### New features
 
@@ -91,7 +91,7 @@ You can also specify the repo name and the branch name: {{#github:FileName|user/
 * The ParserHooks library is now used for the github parser hook
 * Additional tests have been added
 
-### 1.0 (2013-07-15)
+### 0.1 (2013-07-15)
 
 * Initial release
 
