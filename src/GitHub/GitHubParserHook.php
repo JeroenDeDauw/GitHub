@@ -25,7 +25,7 @@ class GitHubParserHook implements HookHandler {
 	 * @param FileFetcher $fileFetcher
 	 * @param string $gitHubUrl
 	 */
-	public function __construct( FileFetcher $fileFetcher, $gitHubUrl = 'https://raw.github.com' ) {
+	public function __construct( FileFetcher $fileFetcher, $gitHubUrl = 'https://raw.githubusercontent.com' ) {
 		$this->fileFetcher = $fileFetcher;
 		$this->gitHubUrl = $gitHubUrl;
 	}
