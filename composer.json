@@ -19,9 +19,9 @@
 	],
 	"require": {
 		"php": ">=5.3.0",
-		"jeroen-de-dauw/simple-cache": "1.*",
-		"jeroen-de-dauw/file-fetcher": "1.*",
-		"mediawiki/parser-hooks": "1.*,>=1.2.1",
+		"jeroen/simple-cache": "~2.0",
+		"jeroen/file-fetcher": "~2.0",
+		"mediawiki/parser-hooks": "~1.4",
 		"dflydev/markdown": "1.*,>=1.0.3"
 	},
 	"autoload": {
