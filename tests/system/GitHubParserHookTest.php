@@ -15,9 +15,9 @@ use ParamProcessor\ProcessingResult;
  */
 class GitHubParserHookTest extends \PHPUnit_Framework_TestCase {
 
-	protected $file;
-	protected $repo;
-	protected $branch;
+	private $file;
+	private $repo;
+	private $branch;
 
 	public function setUp() {
 		$this->file = 'README.md';
@@ -35,7 +35,7 @@ class GitHubParserHookTest extends \PHPUnit_Framework_TestCase {
 		$this->runHookWithFileFetcher( $fileFetcher );
 	}
 
-	protected function runHookWithFileFetcher( FileFetcher $fileFetcher ) {
+	private function runHookWithFileFetcher( FileFetcher $fileFetcher ) {
 		$parserHook = new GitHubParserHook( $fileFetcher );
 
 		$parser = $this->getMock( 'Parser' );
@@ -44,7 +44,7 @@ class GitHubParserHookTest extends \PHPUnit_Framework_TestCase {
 		return $renderResult = $parserHook->handle( $parser, $params );
 	}
 
-	protected function newParams() {
+	private function newParams() {
 		return $params = new ProcessingResult( array(
 			'file' => new ProcessedParam( 'file', $this->file, false ),
 			'repo' => new ProcessedParam( 'repo', $this->repo, false ),
@@ -72,7 +72,7 @@ class GitHubParserHookTest extends \PHPUnit_Framework_TestCase {
 		$this->assertFileContentRendersAs( $markdown, $html );
 	}
 
-	protected function assertFileContentRendersAs( $fileContent, $expectedRenderedResult ) {
+	private function assertFileContentRendersAs( $fileContent, $expectedRenderedResult ) {
 		$fileFetcher = $this->getMock( 'FileFetcher\FileFetcher' );
 
 		$fileFetcher->expects( $this->once() )

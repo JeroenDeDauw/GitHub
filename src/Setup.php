@@ -16,9 +16,9 @@ use SimpleCache\Cache\SimpleInMemoryCache;
  */
 class Setup {
 
-	protected $globals;
-	protected $rootDirectory;
-	protected $defaultGitHubRepo = 'JeroenDeDauw/GitHub';
+	private $globals;
+	private $rootDirectory;
+	private $defaultGitHubRepo = 'JeroenDeDauw/GitHub';
 	private $cacheTime = 600;
 
 	public function __construct( &$globals, $rootDirectory ) {
@@ -34,7 +34,7 @@ class Setup {
 		$this->registerParserHookHandler();
 	}
 
-	protected function registerExtensionCredits() {
+	private function registerExtensionCredits() {
 		$this->globals['wgExtensionCredits']['other'][] = array(
 			'path' => $this->rootDirectory . '/GitHub.php',
 			'name' => 'GitHub',
@@ -47,12 +47,12 @@ class Setup {
 		);
 	}
 
-	protected function registerMessageFiles() {
+	private function registerMessageFiles() {
 		$this->globals['wgExtensionMessagesFiles']['GitHub'] = $this->rootDirectory . '/GitHub.i18n.php';
 		$this->globals['wgExtensionMessagesFiles']['GitHubMagic'] = $this->rootDirectory . '/GitHub.i18n.magic.php';
 	}
 
-	protected function loadSettings() {
+	private function loadSettings() {
 		if ( array_key_exists( 'egGitHubDefaultRepo', $this->globals ) ) {
 			$this->defaultGitHubRepo = $this->globals['egGitHubDefaultRepo'];
 		}
@@ -62,7 +62,7 @@ class Setup {
 		}
 	}
 
-	protected function registerParserHookHandler() {
+	private function registerParserHookHandler() {
 		$self = $this;
 
 		$this->globals['wgHooks']['ParserFirstCallInit'][] = function( \Parser &$parser ) use ( $self ) {

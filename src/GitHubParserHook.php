@@ -14,12 +14,12 @@ use ParserHooks\HookHandler;
  */
 class GitHubParserHook implements HookHandler {
 
-	protected $fileFetcher;
-	protected $gitHubUrl;
+	private $fileFetcher;
+	private $gitHubUrl;
 
-	protected $fileName;
-	protected $repoName;
-	protected $branchName;
+	private $fileName;
+	private $repoName;
+	private $branchName;
 
 	/**
 	 * @param FileFetcher $fileFetcher
@@ -36,7 +36,7 @@ class GitHubParserHook implements HookHandler {
 		return $this->getRenderedContent();
 	}
 
-	protected function setFields( ProcessingResult $result ) {
+	private function setFields( ProcessingResult $result ) {
 		$params = $result->getParameters();
 
 		$this->fileName = $params['file']->getValue();
@@ -44,7 +44,7 @@ class GitHubParserHook implements HookHandler {
 		$this->branchName = $params['branch']->getValue();
 	}
 
-	protected function getRenderedContent() {
+	private function getRenderedContent() {
 		$content = $this->getFileContent();
 
 		if ( $this->isMarkdownFile() ) {
@@ -54,11 +54,11 @@ class GitHubParserHook implements HookHandler {
 		return $content;
 	}
 
-	protected function getFileContent() {
+	private function getFileContent() {
 		return $this->fileFetcher->fetchFile( $this->getFileUrl() );
 	}
 
-	protected function getFileUrl() {
+	private function getFileUrl() {
 		return sprintf(
 			'%s/%s/%s/%s',
 			$this->gitHubUrl,
@@ -68,16 +68,16 @@ class GitHubParserHook implements HookHandler {
 		);
 	}
 
-	protected function isMarkdownFile() {
+	private function isMarkdownFile() {
 		return $this->fileHasExtension( 'md' ) || $this->fileHasExtension( 'markdown' );
 	}
 
-	protected function fileHasExtension( $extension ) {
+	private function fileHasExtension( $extension ) {
 		$fullExtension = '.' . $extension;
 		return substr( $this->fileName, -strlen( $fullExtension ) ) === $fullExtension;
 	}
 
-	protected function renderAsMarkdown( $content ) {
+	private function renderAsMarkdown( $content ) {
 		return Markdown::defaultTransform( $content );
 	}
 
