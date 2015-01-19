@@ -7,11 +7,9 @@ matrix:
   include:
     - env: DBTYPE=mysql; MW=master
       php: 5.3
-    - env: DBTYPE=mysql; MW=1.18.0
-      php: 5.5
-    - env: DBTYPE=sqlite; MW=1.20.0
-      php: 5.4
-    - env: DBTYPE=sqlite; MW=1.22.0
+    - env: DBTYPE=mysql; MW=master
+      php: 5.6
+    - env: DBTYPE=sqlite; MW=1.24.0
       php: 5.5
   exclude:
     - env: THENEEDFORTHIS=FAIL
