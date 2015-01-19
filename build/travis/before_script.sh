@@ -22,7 +22,7 @@ cd extensions
 cp -r $originalDirectory GitHub
 
 cd GitHub
-composer install
+composer install --prefer-source
 
 cd ../..
 

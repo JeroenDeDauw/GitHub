@@ -25,8 +25,8 @@
 		"dflydev/markdown": "1.*,>=1.0.3"
 	},
 	"autoload": {
-		"psr-0": {
-			"GitHub": "src"
+		"psr-4": {
+			"GitHub\\": "src/"
 		},
 		"files" : [
 			"GitHub.php"

@@ -13,29 +13,17 @@ On Packagist:
 ## Requirements
 
 * [PHP](http://www.php.net) 5.3 or later
-* [MediaWiki](https://www.mediawiki.org) 1.16 or later
+* [MediaWiki](https://www.mediawiki.org) 1.24 or later
 * Installation via [Composer](http://getcomposer.org/)
 
 ## Installation
 
 The recommended way to install the GitHub extension is with [Composer](http://getcomposer.org) using
-[MediaWiki 1.22 built-in support for Composer](https://www.mediawiki.org/wiki/Composer). MediaWiki
-versions prior to 1.22 can use Composer via the
-[Extension Installer](https://github.com/JeroenDeDauw/ExtensionInstaller/blob/master/README.md)
-extension.
+[MediaWiki 1.22 built-in support for Composer](https://www.mediawiki.org/wiki/Composer).
 
 ##### Step 1
 
-If you have MediaWiki 1.22 or later, go to the root directory of your MediaWiki installation,
-and go to step 2. You do not need to install any extensions to support composer.
-
-For MediaWiki 1.21.x and earlier you need to install the
-[Extension Installer](https://github.com/JeroenDeDauw/ExtensionInstaller/blob/master/README.md) extension.
-
-Once you are done installing the Extension Installer, go to its directory so composer.phar
-is installed in the right place.
-
-    cd extensions/ExtensionInstaller
+Go to the root directory of your MediaWiki installation and go to step 2.
 
 ##### Step 2
 
@@ -87,7 +75,8 @@ You can also specify the repo name and the branch name: {{#github:FileName|user/
 
 #### Enhancements
 
-* PSR-0 based autoloading is now used
+* Compatibility with the latest version of the GitHub API has been added
+* PSR-4 based autoloading is now used
 * The ParserHooks library is now used for the github parser hook
 * Additional tests have been added
 

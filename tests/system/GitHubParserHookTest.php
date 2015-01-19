@@ -30,7 +30,7 @@ class GitHubParserHookTest extends \PHPUnit_Framework_TestCase {
 
 		$fileFetcher->expects( $this->once() )
 			->method( 'fetchFile' )
-			->with( 'https://raw.github.com/JeroenDeDauw/GitHub/master/README.md' );
+			->with( 'https://raw.githubusercontent.com/JeroenDeDauw/GitHub/master/README.md' );
 
 		$this->runHookWithFileFetcher( $fileFetcher );
 	}
