@@ -1,6 +1,6 @@
 ## GitHub extension for MediaWiki
 
-Simple MediaWiki extension that allows embedding the content of files hosted in GitHub git repositories.
+Simple MediaWiki extension for embedding content of files hosted in GitHub git repositories.
 
 Build status:
 [![Build Status](https://secure.travis-ci.org/JeroenDeDauw/GitHub.png?branch=master)](http://travis-ci.org/JeroenDeDauw/GitHub)
@@ -56,10 +56,10 @@ for Semantic MediaWiki as follows:
 
 ## Usage
 
-Add {{#github:FileName}} to your wiki page, where FileName is the name of the file you want to embed.
-This can include a path, for instance {{#github:docs/INSTALL.md}}.
+Add `{{#github:FileName}}` to your wiki page, where FileName is the name of the file you want to embed.
+This can include a path, for instance `{{#github:docs/INSTALL.md}}`.
 
-You can also specify the repo name and the branch name: {{#github:FileName|user/repo|branchName}}
+You can also specify the repo name and the branch name: `{{#github:FileName|user/repo|branchName}}`
 
 ## Release notes
 
