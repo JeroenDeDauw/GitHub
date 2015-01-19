@@ -80,7 +80,7 @@ You can also specify the repo name and the branch name: `{{#github:FileName|user
 * Added `$egGitHubUrl` setting
 * Changed default GitHub raw content url from `https://raw.githubusercontent.com` to `https://cdn.rawgit.com` (tanks to Mike Cariaso)
 
-### 1.0 (2015-01-19)
+### 1.0.0 (2015-01-19)
 
 #### New features
 
@@ -99,7 +99,7 @@ You can also specify the repo name and the branch name: `{{#github:FileName|user
 * The ParserHooks library is now used for the github parser hook
 * Additional tests have been added
 
-### 0.1 (2013-07-15)
+### 0.1.0 (2013-07-15)
 
 * Initial release
 
