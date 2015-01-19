@@ -12,8 +12,8 @@ On Packagist:
 
 ## Requirements
 
-* [PHP](http://www.php.net) 5.3 or later
-* [MediaWiki](https://www.mediawiki.org) 1.24 or later
+* [PHP](http://www.php.net) 5.3 or later (HHVM is supported)
+* [MediaWiki](https://www.mediawiki.org) 1.24 or later (earlier versions likely work when using [ExtensionInstaller](https://github.com/JeroenDeDauw/ExtensionInstaller))
 * Installation via [Composer](http://getcomposer.org/)
 
 ## Installation
