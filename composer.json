@@ -22,7 +22,7 @@
 		"jeroen/simple-cache": "~2.0",
 		"jeroen/file-fetcher": "~2.0",
 		"mediawiki/parser-hooks": "~1.4",
-		"dflydev/markdown": "1.*,>=1.0.3"
+		"michelf/php-markdown": "~1.4"
 	},
 	"autoload": {
 		"psr-4": {

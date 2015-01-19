@@ -6,7 +6,6 @@ use FileFetcher\CachingFileFetcher;
 use ParserHooks\FunctionRunner;
 use ParserHooks\HookDefinition;
 use ParserHooks\HookRegistrant;
-use ParserHooks\HookRunner;
 use SimpleCache\Cache\CombinatoryCache;
 use SimpleCache\Cache\MediaWikiCache;
 use SimpleCache\Cache\SimpleInMemoryCache;

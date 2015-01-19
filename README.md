@@ -23,7 +23,7 @@ The recommended way to install the GitHub extension is with [Composer](http://ge
 
 ##### Step 1
 
-Go to the root directory of your MediaWiki installation and go to step 2.
+Go to the root directory of your MediaWiki installation.
 
 ##### Step 2
 
@@ -52,7 +52,7 @@ The default GitHub repo can be set using the `$egGitHubDefaultRepo` setting. Ass
 the name of the default repo in your LocalSettings file, after the inclusion of this extension e.g.
 for Semantic MediaWiki as follows:
 
-    $egGitHubDefaultRepo = 'wikimedia/mediawiki-extensions-SemanticMediaWiki';
+    $egGitHubDefaultRepo = 'SemanticMediaWiki/SemanticMediaWiki';
 
 ## Usage
 

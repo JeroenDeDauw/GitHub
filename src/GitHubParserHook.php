@@ -2,8 +2,8 @@
 
 namespace GitHub;
 
-use dflydev\markdown\MarkdownExtraParser;
 use FileFetcher\FileFetcher;
+use Michelf\Markdown;
 use ParamProcessor\ProcessingResult;
 use Parser;
 use ParserHooks\HookHandler;
@@ -78,8 +78,7 @@ class GitHubParserHook implements HookHandler {
 	}
 
 	protected function renderAsMarkdown( $content ) {
-		$markdownParser = new MarkdownExtraParser();
-		return $markdownParser->transform( $content );
+		return Markdown::defaultTransform( $content );
 	}
 
 }
