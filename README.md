@@ -59,6 +59,12 @@ is used as secondary cache, with a default TTL of 600 seconds. You can use the
 `$egGitHubCacheTime` setting to change the TTL:
 
     $egGitHubCacheTime = 900;
+    
+You can modify the GitHub raw content URL used to fetch the files. The default is
+`https://cdn.rawgit.com`, due to `https://raw.githubusercontent.com` not working on all systems.
+You can change this setting as follows:
+
+    $egGitHubUrl = 'https://raw.githubusercontent.com';
 
 ## Usage
 
@@ -68,6 +74,11 @@ This can include a path, for instance `{{#github:docs/INSTALL.md}}`.
 You can also specify the repo name and the branch name: `{{#github:FileName|user/repo|branchName}}`
 
 ## Release notes
+
+### 1.0.1 (2015-01-19)
+
+* Added `$egGitHubUrl` setting
+* Changed default GitHub raw content url from `https://raw.githubusercontent.com` to `https://cdn.rawgit.com`
 
 ### 1.0 (2015-01-19)
 

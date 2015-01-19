@@ -20,6 +20,7 @@ class Setup {
 	private $rootDirectory;
 	private $defaultGitHubRepo = 'JeroenDeDauw/GitHub';
 	private $cacheTime = 600;
+	private $gitHubUrl = 'https://cdn.rawgit.com';
 
 	public function __construct( &$globals, $rootDirectory ) {
 		$this->globals =& $globals;
@@ -59,6 +60,10 @@ class Setup {
 
 		if ( array_key_exists( 'egGitHubCacheTime', $this->globals ) ) {
 			$this->cacheTime = $this->globals['egGitHubCacheTime'];
+		}
+
+		if ( array_key_exists( 'egGitHubUrl', $this->globals ) ) {
+			$this->gitHubUrl = $this->globals['egGitHubUrl'];
 		}
 	}
 
@@ -123,7 +128,8 @@ class Setup {
 
 	public function getGitHubHookHandler() {
 		return new GitHubParserHook(
-			$this->newFileFetcher()
+			$this->newFileFetcher(),
+			$this->gitHubUrl
 		);
 	}
 
