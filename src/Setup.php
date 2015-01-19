@@ -82,7 +82,7 @@ class Setup {
 			new MediaWikiFileFetcher(),
 			new CombinatoryCache( array(
 				new SimpleInMemoryCache(),
-				new MediaWikiCache( wfGetMainCache() )
+				new MediaWikiCache( wfGetMainCache(), 600 )
 			) )
 		);
 	}
