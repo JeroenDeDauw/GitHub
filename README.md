@@ -78,7 +78,7 @@ You can also specify the repo name and the branch name: `{{#github:FileName|user
 ### 1.0.1 (2015-01-19)
 
 * Added `$egGitHubUrl` setting
-* Changed default GitHub raw content url from `https://raw.githubusercontent.com` to `https://cdn.rawgit.com`
+* Changed default GitHub raw content url from `https://raw.githubusercontent.com` to `https://cdn.rawgit.com` (tanks to Mike Cariaso)
 
 ### 1.0 (2015-01-19)
 
