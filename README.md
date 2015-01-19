@@ -63,7 +63,7 @@ You can also specify the repo name and the branch name: {{#github:FileName|user/
 
 ## Release notes
 
-### 1.0 (under development)
+### 1.0 (2015-01-19)
 
 #### New features
 
@@ -79,6 +79,7 @@ You can also specify the repo name and the branch name: {{#github:FileName|user/
 * PSR-4 based autoloading is now used
 * The ParserHooks library is now used for the github parser hook
 * Additional tests have been added
+* The `michelf/php-markdown` library is now used instead of `dflydev/markdown`
 
 ### 0.1 (2013-07-15)
 
