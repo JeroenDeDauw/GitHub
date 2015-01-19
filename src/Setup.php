@@ -19,6 +19,7 @@ class Setup {
 	protected $globals;
 	protected $rootDirectory;
 	protected $defaultGitHubRepo = 'JeroenDeDauw/GitHub';
+	private $cacheTime = 600;
 
 	public function __construct( &$globals, $rootDirectory ) {
 		$this->globals =& $globals;
@@ -55,6 +56,10 @@ class Setup {
 		if ( array_key_exists( 'egGitHubDefaultRepo', $this->globals ) ) {
 			$this->defaultGitHubRepo = $this->globals['egGitHubDefaultRepo'];
 		}
+
+		if ( array_key_exists( 'egGitHubCacheTime', $this->globals ) ) {
+			$this->cacheTime = $this->globals['egGitHubCacheTime'];
+		}
 	}
 
 	protected function registerParserHookHandler() {
@@ -82,7 +87,7 @@ class Setup {
 			new MediaWikiFileFetcher(),
 			new CombinatoryCache( array(
 				new SimpleInMemoryCache(),
-				new MediaWikiCache( wfGetMainCache(), 600 )
+				new MediaWikiCache( wfGetMainCache(), $this->cacheTime )
 			) )
 		);
 	}

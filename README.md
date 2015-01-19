@@ -54,6 +54,12 @@ for Semantic MediaWiki as follows:
 
     $egGitHubDefaultRepo = 'SemanticMediaWiki/SemanticMediaWiki';
 
+The file contents gets cached in memory during the PHP request. The main MediaWiki cache
+is used as secondary cache, with a default TTL of 600 seconds. You can use the
+`$egGitHubCacheTime` setting to change the TTL:
+
+    $egGitHubCacheTime = 900;
+
 ## Usage
 
 Add `{{#github:FileName}}` to your wiki page, where FileName is the name of the file you want to embed.
@@ -68,6 +74,7 @@ You can also specify the repo name and the branch name: `{{#github:FileName|user
 #### New features
 
 * Added support for markdown. Files ending on .md or .markdown are now rendered appropriately.
+* Added `$egGitHubCacheTime` setting
 
 #### Compatibility changes
 
@@ -79,7 +86,6 @@ You can also specify the repo name and the branch name: `{{#github:FileName|user
 * PSR-4 based autoloading is now used
 * The ParserHooks library is now used for the github parser hook
 * Additional tests have been added
-* The `michelf/php-markdown` library is now used instead of `dflydev/markdown`
 
 ### 0.1 (2013-07-15)
 
