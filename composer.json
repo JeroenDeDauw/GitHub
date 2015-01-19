@@ -1,5 +1,5 @@
 {
-	"name": "jeroen-de-dauw/mediawiki-github",
+	"name": "jeroen/mediawiki-github",
 	"type": "library",
 	"description": "Simple MediaWiki extension that allows embedding the content of files hosted in GitHub git repositories",
 	"keywords": [
@@ -39,5 +39,8 @@
 		"branch-alias": {
 			"dev-master": "1.0.x-dev"
 		}
+	},
+	"replace": {
+		"jeroen-de-dauw/mediawiki-github": "*"
 	}
 }

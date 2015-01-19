@@ -7,8 +7,8 @@ Build status:
 [![Scrutinizer Quality Score](https://scrutinizer-ci.com/g/JeroenDeDauw/GitHub/badges/quality-score.png?s=b928c81a24ec2d8fcf6dd2b291b41c76ef528dbe)](https://scrutinizer-ci.com/g/JeroenDeDauw/GitHub/)
 
 On Packagist:
-[![Latest Stable Version](https://poser.pugx.org/jeroen-de-dauw/mediawiki-github/version.png)](https://packagist.org/packages/jeroen-de-dauw/mediawiki-github)
-[![Latest Stable Version](https://poser.pugx.org/jeroen-de-dauw/mediawiki-github/d/total.png)](https://packagist.org/packages/jeroen-de-dauw/mediawiki-github)
+[![Latest Stable Version](https://poser.pugx.org/jeroen/mediawiki-github/version.png)](https://packagist.org/packages/jeroen/mediawiki-github)
+[![Latest Stable Version](https://poser.pugx.org/jeroen/mediawiki-github/d/total.png)](https://packagist.org/packages/jeroen/mediawiki-github)
 
 ## Requirements
 
@@ -40,7 +40,7 @@ Now using Composer, install Semantic MediaWiki.
 If you do not have a composer.json file yet, copy the composer-example.json file to composer.json. If you
 are using the ExtensionInstaller, the file to copy will be named example.json, rather than composer-example.json. When this is done, run:
     
-    php composer.phar require jeroen-de-dauw/mediawiki-github "@dev"
+    php composer.phar require jeroen/mediawiki-github "@dev"
 
 ##### Verify installation success
 
@@ -73,12 +73,13 @@ You can also specify the repo name and the branch name: `{{#github:FileName|user
 
 #### New features
 
-* Added support for markdown. Files ending on .md or .markdown are now rendered appropriately.
+* Added support for markdown. Files ending on .md or .markdown are now rendered appropriately
 * Added `$egGitHubCacheTime` setting
 
 #### Compatibility changes
 
-* The extension now needs to be installed via Composer.
+* The extension now needs to be installed via Composer
+* The package name has changed from `jeroen-de-dauw/mediawiki-github` to `jeroen/mediawiki-github`
 
 #### Enhancements
 
@@ -93,7 +94,7 @@ You can also specify the repo name and the branch name: `{{#github:FileName|user
 
 ## Links
 
-* [GitHub on Packagist](https://packagist.org/packages/jeroen-de-dauw/mediawiki-github)
+* [GitHub on Packagist](https://packagist.org/packages/jeroen/mediawiki-github)
 * [GitHub on Ohloh](https://www.ohloh.net/p/mediawiki-github)
 * [GitHub on MediaWiki.org](https://www.mediawiki.org/wiki/Extension:GitHub)
 * [TravisCI build status](https://travis-ci.org/JeroenDeDauw/GitHub)
