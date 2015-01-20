@@ -3,6 +3,7 @@
 namespace GitHub;
 
 use FileFetcher\CachingFileFetcher;
+use FileFetcher\SimpleFileFetcher;
 use ParserHooks\FunctionRunner;
 use ParserHooks\HookDefinition;
 use ParserHooks\HookRegistrant;
@@ -21,6 +22,7 @@ class Setup {
 	private $defaultGitHubRepo = 'JeroenDeDauw/GitHub';
 	private $cacheTime = 600;
 	private $gitHubUrl = 'https://cdn.rawgit.com';
+	private $gitHubFetcher = 'simple';
 
 	public function __construct( &$globals, $rootDirectory ) {
 		$this->globals =& $globals;
@@ -65,6 +67,10 @@ class Setup {
 		if ( array_key_exists( 'egGitHubUrl', $this->globals ) ) {
 			$this->gitHubUrl = $this->globals['egGitHubUrl'];
 		}
+
+		if ( array_key_exists( 'egGitHubFetcher', $this->globals ) ) {
+			$this->gitHubFetcher = $this->globals['egGitHubFetcher'];
+		}
 	}
 
 	private function registerParserHookHandler() {
@@ -89,7 +95,7 @@ class Setup {
 
 	public function newFileFetcher() {
 		return new CachingFileFetcher(
-			new MediaWikiFileFetcher(),
+			$this->gitHubFetcher === 'mediawiki' ? new MediaWikiFileFetcher() : new SimpleFileFetcher(),
 			new CombinatoryCache( array(
 				new SimpleInMemoryCache(),
 				new MediaWikiCache( wfGetMainCache(), $this->cacheTime )

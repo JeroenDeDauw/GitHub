@@ -66,6 +66,15 @@ You can change this setting as follows:
 
     $egGitHubUrl = 'https://raw.githubusercontent.com';
 
+You can modify which method is used to fetch the file. The supported methods are
+
+* `'simple'` - use PHPs file_get_contents
+* `'mediawiki'` - use MediaWikis HTTP class
+
+The default is `'simple'`. You can change this setting as follows:
+
+    $egGitHubFetcher = 'mediawiki';
+
 ## Usage
 
 Add `{{#github:FileName}}` to your wiki page, where FileName is the name of the file you want to embed.
@@ -74,6 +83,11 @@ This can include a path, for instance `{{#github:docs/INSTALL.md}}`.
 You can also specify the repo name and the branch name: `{{#github:FileName|user/repo|branchName}}`
 
 ## Release notes
+
+### 1.0.2 (2015-01-20)
+
+* Added `$egGitHubFetcher` setting
+* The files are now by default fetched using `file_get_contents` rather than MediaWikis `HTTP` class
 
 ### 1.0.1 (2015-01-19)
 
