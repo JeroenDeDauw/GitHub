@@ -1,0 +1,11 @@
+{
+	"@metadata": {
+		"authors": [
+			"Bjankuloski06"
+		]
+	},
+	"github-desc": "Овозможува вметнување на содржини на податотеки од [https://www.github.com/ GitHub]",
+	"github-par-filename": "Име на податотека",
+	"github-par-branchname": "Име на гранката",
+	"github-par-reponame": "Име на складиштето"
+}
