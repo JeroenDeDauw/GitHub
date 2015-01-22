@@ -1,0 +1,11 @@
+{
+	"@metadata": {
+		"authors": [
+			"Kghbln"
+		]
+	},
+	"github-desc": "Ermöglicht das Einbetten des Inhalts von Dateien, die sich bei [https://www.github.com/ GitHub] befinden",
+	"github-par-filename": "Name der Datei",
+	"github-par-branchname": "Name des Versionszweigs",
+	"github-par-reponame": "Name des Repositoriums"
+}

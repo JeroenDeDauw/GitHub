@@ -1,0 +1,11 @@
+{
+	"@metadata": {
+		"authors": [
+			"Kghbln"
+		]
+	},
+	"github-desc": "{{desc|name=GitHub|url=https://www.mediawiki.org/wiki/Extension:GitHub}}",
+	"github-par-filename": "Label for the contents of the \"file name\" parameter",
+	"github-par-branchname": "Label for the contents of the \"branch name\" parameter",
+	"github-par-reponame": "Label for the contents of the \"repository name\" parameter"
+}
