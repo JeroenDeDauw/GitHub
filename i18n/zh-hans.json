@@ -1,0 +1,11 @@
+{
+	"@metadata": {
+		"authors": [
+			"Liuxinyu970226"
+		]
+	},
+	"github-desc": "允许嵌入来自[https://www.github.com/ GitHub]的文件内容",
+	"github-par-filename": "文件名",
+	"github-par-branchname": "分支名称",
+	"github-par-reponame": "版本库名称"
+}

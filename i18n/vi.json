@@ -1,0 +1,11 @@
+{
+	"@metadata": {
+		"authors": [
+			"Dinhxuanduyet"
+		]
+	},
+	"github-desc": "Cho phép nhúng nội dung của tập tin từ [https://www.github.com/ GitHub]",
+	"github-par-filename": "Tên tập tin",
+	"github-par-branchname": "Tên chi nhánh",
+	"github-par-reponame": "Tên kho lưu trữ"
+}
