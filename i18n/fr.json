@@ -1,0 +1,12 @@
+{
+	"@metadata": {
+		"authors": [
+			"Benjozork",
+			"Orikrin1998"
+		]
+	},
+	"github-desc": "Permet d'intégrer le contenu des fichiers à partir de [https://www.github.com/ GitHub]",
+	"github-par-filename": "Nom du fichier",
+	"github-par-branchname": "Nom de la branche",
+	"github-par-reponame": "Nom du dépôt"
+}
