@@ -1,0 +1,11 @@
+{
+	"@metadata": {
+		"authors": [
+			"Nivit"
+		]
+	},
+	"github-desc": "Consente di incorporare contenuti di file da [https://www.github.com/ GitHub]",
+	"github-par-filename": "Nome del file",
+	"github-par-branchname": "Nome del ramo",
+	"github-par-reponame": "Nome del repository"
+}

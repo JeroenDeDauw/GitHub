@@ -1,8 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"Littledogboy"
+			"Littledogboy",
+			"Aktron"
 		]
 	},
-	"github-par-filename": "Jméno souboru"
+	"github-par-filename": "Jméno souboru",
+	"github-par-branchname": "Název větve",
+	"github-par-reponame": "Název repozitáře"
 }
