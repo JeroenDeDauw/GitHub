@@ -1,0 +1,11 @@
+{
+	"@metadata": {
+		"authors": [
+			"Fitoschido"
+		]
+	},
+	"github-desc": "Permet incrustar el contingut dels fitxers de [https://www.github.com/ GitHub]",
+	"github-par-filename": "Nom del fitxer",
+	"github-par-branchname": "Nom de la branca",
+	"github-par-reponame": "Nom del repositori"
+}
