@@ -1,0 +1,11 @@
+{
+	"@metadata": {
+		"authors": [
+			"Ата"
+		]
+	},
+	"github-desc": "Дозволяє вбудовувати вміст файлів з [https://www.github.com/ GitHub]",
+	"github-par-filename": "Назва файлу",
+	"github-par-branchname": "Назва гілки",
+	"github-par-reponame": "Назва репозиторію"
+}
