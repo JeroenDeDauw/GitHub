@@ -1,8 +1,12 @@
 {
 	"@metadata": {
 		"authors": [
-			"WikiPhoenix"
+			"WikiPhoenix",
+			"Lokal Profil"
 		]
 	},
-	"github-par-filename": "Filnamn"
+	"github-desc": "Tillåter inbäddning av innehållet i filer från [https://www.github.com/ GitHub]",
+	"github-par-filename": "Filnamn",
+	"github-par-branchname": "Grennamn",
+	"github-par-reponame": "Centralförvarsnamn"
 }
