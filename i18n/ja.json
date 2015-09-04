@@ -1,0 +1,10 @@
+{
+	"@metadata": {
+		"authors": [
+			"Otokoume"
+		]
+	},
+	"github-desc": "[https://www.github.com/ GitHub]からファイルの内容を埋め込むことができます",
+	"github-par-filename": "ファイル名",
+	"github-par-reponame": "リポジトリ名"
+}
