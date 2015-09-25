@@ -1,0 +1,11 @@
+{
+	"@metadata": {
+		"authors": [
+			"Revi"
+		]
+	},
+	"github-desc": "[https://www.github.com GitHub]에서 파일을 임베드",
+	"github-par-filename": "파일 이름",
+	"github-par-branchname": "브랜치 이름",
+	"github-par-reponame": "저장소 이름"
+}
