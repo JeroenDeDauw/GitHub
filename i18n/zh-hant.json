@@ -1,8 +1,12 @@
 {
 	"@metadata": {
 		"authors": [
-			"Citizen01"
+			"Citizen01",
+			"Cwlin0416"
 		]
 	},
-	"github-par-filename": "檔案名稱"
+	"github-desc": "允許內嵌來自 [https://www.github.com/ GitHub] 的檔案內容",
+	"github-par-filename": "檔案名稱",
+	"github-par-branchname": "分支名稱",
+	"github-par-reponame": "儲存庫名稱"
 }

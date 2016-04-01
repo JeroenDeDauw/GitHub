@@ -1,8 +1,13 @@
 {
 	"@metadata": {
 		"authors": [
-			"Littledogboy"
+			"Littledogboy",
+			"Aktron",
+			"Clon"
 		]
 	},
-	"github-par-filename": "Jméno souboru"
+	"github-desc": "Umožňuje vkládání obsahu souborů z [https://www.github.com/ GitHubu]",
+	"github-par-filename": "Jméno souboru",
+	"github-par-branchname": "Název větve",
+	"github-par-reponame": "Název repozitáře"
 }

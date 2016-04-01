@@ -1,0 +1,11 @@
+{
+	"@metadata": {
+		"authors": [
+			"Banjo"
+		]
+	},
+	"github-desc": "Permite a incorporación de contidos de ficheiros presentes en  [https://www.github.com/ GitHub]",
+	"github-par-filename": "Nome de ficheiro",
+	"github-par-branchname": "Nome da rama",
+	"github-par-reponame": "Nome do repositorio"
+}

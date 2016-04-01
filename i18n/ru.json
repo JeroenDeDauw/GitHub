@@ -1,0 +1,11 @@
+{
+	"@metadata": {
+		"authors": [
+			"Okras"
+		]
+	},
+	"github-desc": "Позволяет встраивать содержимое файлов с [https://www.github.com/ на GitHub]",
+	"github-par-filename": "Имя файла",
+	"github-par-branchname": "Название ветки (branch)",
+	"github-par-reponame": "Название репозитория"
+}

@@ -1,8 +1,14 @@
 {
 	"@metadata": {
 		"authors": [
-			"Robin0van0der0vliet"
+			"Robin0van0der0vliet",
+			"Esketti",
+			"Robin van der Vliet",
+			"Sjoerddebruin"
 		]
 	},
-	"github-par-filename": "Bestandsnaam"
+	"github-desc": "Laat de inbedding van de inhoud van de bestanden van [https://www.github.com/ GitHub]",
+	"github-par-filename": "Bestandsnaam",
+	"github-par-branchname": "Branchnaam",
+	"github-par-reponame": "Repositorynaam"
 }
