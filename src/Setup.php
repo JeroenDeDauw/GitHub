@@ -46,7 +46,8 @@ class Setup {
 				'[https://www.mediawiki.org/wiki/User:Jeroen_De_Dauw Jeroen De Dauw]',
 			),
 			'url' => 'https://github.com/JeroenDeDauw/GitHub',
-			'descriptionmsg' => 'github-desc'
+			'descriptionmsg' => 'github-desc',
+			'license-name' => 'GPL-2.0+'
 		);
 	}
 
