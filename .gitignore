@@ -3,6 +3,7 @@
 *.kate-swp
 
 !.travis.yml
+!.scrutinizer.yml
 
 node_modules/**
 vendor/
