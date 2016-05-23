@@ -1,0 +1,11 @@
+{
+	"@metadata": {
+		"authors": [
+			"Guycn2"
+		]
+	},
+	"github-desc": "מאפשר להטמיע תוכן של קבצים מ־[https://www.github.com/ GitHub]",
+	"github-par-filename": "שם הקובץ",
+	"github-par-branchname": "שם הענף",
+	"github-par-reponame": "שם המאגר"
+}
