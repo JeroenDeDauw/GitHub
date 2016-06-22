@@ -1,0 +1,11 @@
+{
+	"@metadata": {
+		"authors": [
+			"Wolf Rex"
+		]
+	},
+	"github-desc": "Lehetővé teszi [https://www.github.com/ GitHub]-tartalmak beillesztését",
+	"github-par-filename": "Fájlnév",
+	"github-par-branchname": "Ágnév",
+	"github-par-reponame": "Tárhelynév"
+}
