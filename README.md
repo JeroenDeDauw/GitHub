@@ -12,7 +12,7 @@ On Packagist:
 
 ## Requirements
 
-* [PHP](http://www.php.net) 5.3 or later (HHVM is supported)
+* [PHP](http://www.php.net) 5.3 or later (HHVM and PHP 7 are supported)
 * [MediaWiki](https://www.mediawiki.org) 1.24 or later (earlier versions likely work when using [ExtensionInstaller](https://github.com/JeroenDeDauw/ExtensionInstaller))
 * Installation via [Composer](http://getcomposer.org/)
 
@@ -34,12 +34,12 @@ To install Composer:
     wget http://getcomposer.org/composer.phar
 
 ##### Step 3
-    
+
 Now using Composer, install the GitHub extension.
 
 If you do not have a composer.json file yet, copy the composer-example.json file to composer.json. If you
 are using the ExtensionInstaller, the file to copy will be named example.json, rather than composer-example.json. When this is done, run:
-    
+
     php composer.phar require jeroen/mediawiki-github "@dev"
 
 ##### Verify installation success
@@ -59,7 +59,7 @@ is used as secondary cache, with a default TTL of 600 seconds. You can use the
 `$egGitHubCacheTime` setting to change the TTL:
 
     $egGitHubCacheTime = 900;
-    
+
 You can modify the GitHub raw content URL used to fetch the files. The default is
 `https://cdn.rawgit.com`, due to `https://raw.githubusercontent.com` not working on all systems.
 You can change this setting as follows:
@@ -83,6 +83,11 @@ This can include a path, for instance `{{#github:docs/INSTALL.md}}`.
 You can also specify the repo name and the branch name: `{{#github:FileName|user/repo|branchName}}`
 
 ## Release notes
+
+### 1.0.3 (2016-07-16)
+
+* Fixed version number on Special:Version
+* Switched from FileFetcher ~2.0 to ~3.1
 
 ### 1.0.2 (2015-01-20)
 
