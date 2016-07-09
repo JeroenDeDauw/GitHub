@@ -26,7 +26,7 @@ class GitHubParserHookTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function testUrlGetsBuildCorrectly() {
-		$fileFetcher = $this->createMock( 'FileFetcher\FileFetcher' );
+		$fileFetcher = $this->createMock( FileFetcher::class );
 
 		$fileFetcher->expects( $this->once() )
 			->method( 'fetchFile' )
@@ -73,7 +73,7 @@ class GitHubParserHookTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	private function assertFileContentRendersAs( $fileContent, $expectedRenderedResult ) {
-		$fileFetcher = $this->createMock( 'FileFetcher\FileFetcher' );
+		$fileFetcher = $this->createMock( FileFetcher::class );
 
 		$fileFetcher->expects( $this->once() )
 			->method( 'fetchFile' )

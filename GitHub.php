@@ -12,7 +12,7 @@ if ( defined( 'GitHub_VERSION' ) ) {
 	return 1;
 }
 
-define( 'GitHub_VERSION', '1.0.3' );
+define( 'GitHub_VERSION', '1.1.0-alpha' );
 
 if ( is_readable( __DIR__ . '/vendor/autoload.php' ) ) {
 	include_once( __DIR__ . '/vendor/autoload.php' );

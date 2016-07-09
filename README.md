@@ -84,6 +84,10 @@ You can also specify the repo name and the branch name: `{{#github:FileName|user
 
 ## Release notes
 
+### 1.1.0 (dev)
+
+* Dropped support for PHP < 5.5
+
 ### 1.0.3 (2016-07-16)
 
 * Fixed version number on Special:Version
@@ -97,7 +101,7 @@ You can also specify the repo name and the branch name: `{{#github:FileName|user
 ### 1.0.1 (2015-01-19)
 
 * Added `$egGitHubUrl` setting
-* Changed default GitHub raw content url from `https://raw.githubusercontent.com` to `https://cdn.rawgit.com` (tanks to Mike Cariaso)
+* Changed default GitHub raw content url from `https://raw.githubusercontent.com` to `https://cdn.rawgit.com` (thanks to Mike Cariaso)
 
 ### 1.0.0 (2015-01-19)
 
