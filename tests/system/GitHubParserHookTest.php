@@ -26,7 +26,7 @@ class GitHubParserHookTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function testUrlGetsBuildCorrectly() {
-		$fileFetcher = $this->getMock( 'FileFetcher\FileFetcher' );
+		$fileFetcher = $this->createMock( 'FileFetcher\FileFetcher' );
 
 		$fileFetcher->expects( $this->once() )
 			->method( 'fetchFile' )
@@ -38,7 +38,7 @@ class GitHubParserHookTest extends \PHPUnit_Framework_TestCase {
 	private function runHookWithFileFetcher( FileFetcher $fileFetcher ) {
 		$parserHook = new GitHubParserHook( $fileFetcher, 'https://cdn.rawgit.com' );
 
-		$parser = $this->getMock( 'Parser' );
+		$parser = $this->createMock( 'Parser' );
 		$params = $this->newParams();
 
 		return $renderResult = $parserHook->handle( $parser, $params );
@@ -73,7 +73,7 @@ class GitHubParserHookTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	private function assertFileContentRendersAs( $fileContent, $expectedRenderedResult ) {
-		$fileFetcher = $this->getMock( 'FileFetcher\FileFetcher' );
+		$fileFetcher = $this->createMock( 'FileFetcher\FileFetcher' );
 
 		$fileFetcher->expects( $this->once() )
 			->method( 'fetchFile' )
