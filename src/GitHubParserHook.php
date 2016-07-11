@@ -3,6 +3,7 @@
 namespace GitHub;
 
 use FileFetcher\FileFetcher;
+use FileFetcher\FileFetchingException;
 use Michelf\Markdown;
 use ParamProcessor\ProcessingResult;
 use Parser;
@@ -55,7 +56,12 @@ class GitHubParserHook implements HookHandler {
 	}
 
 	private function getFileContent() {
-		return $this->fileFetcher->fetchFile( $this->getFileUrl() );
+		try {
+			return $this->fileFetcher->fetchFile( $this->getFileUrl() );
+		}
+		catch ( FileFetchingException $ex ) {
+			return '';
+		}
 	}
 
 	private function getFileUrl() {
