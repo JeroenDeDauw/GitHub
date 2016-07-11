@@ -12,7 +12,7 @@ On Packagist:
 
 ## Requirements
 
-* [PHP](http://www.php.net) 5.3 or later (HHVM and PHP 7 are supported)
+* [PHP](http://www.php.net) 5.5 or later (HHVM and PHP 7 are supported)
 * [MediaWiki](https://www.mediawiki.org) 1.24 or later (earlier versions likely work when using [ExtensionInstaller](https://github.com/JeroenDeDauw/ExtensionInstaller))
 * Installation via [Composer](http://getcomposer.org/)
 
@@ -84,9 +84,10 @@ You can also specify the repo name and the branch name: `{{#github:FileName|user
 
 ## Release notes
 
-### 1.1.0 (dev)
+### 1.1.0 (2016-07-16)
 
 * Dropped support for PHP < 5.5
+* Fixed error on file not found. The parser function will now return an empty string in this case.
 
 ### 1.0.3 (2016-07-16)
 
