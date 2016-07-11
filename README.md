@@ -84,12 +84,12 @@ You can also specify the repo name and the branch name: `{{#github:FileName|user
 
 ## Release notes
 
-### 1.1.0 (2016-07-16)
+### 1.1.0 (2016-07-11)
 
 * Dropped support for PHP < 5.5
 * Fixed error on file not found. The parser function will now return an empty string in this case.
 
-### 1.0.3 (2016-07-16)
+### 1.0.3 (2016-07-10)
 
 * Fixed version number on Special:Version
 * Switched from FileFetcher ~2.0 to ~3.1
