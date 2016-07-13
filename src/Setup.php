@@ -52,7 +52,6 @@ class Setup {
 	}
 
 	private function registerMessageFiles() {
-		$this->globals['wgExtensionMessagesFiles']['GitHub'] = $this->rootDirectory . '/GitHub.i18n.php';
 		$this->globals['wgExtensionMessagesFiles']['GitHubMagic'] = $this->rootDirectory . '/GitHub.i18n.magic.php';
 		$this->globals['wgMessagesDirs']['GitHub'] = $this->rootDirectory . '/i18n';
 	}

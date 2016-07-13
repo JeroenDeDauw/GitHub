@@ -101,6 +101,7 @@ You can also specify the repo name and the branch name: `{{#github:FileName|user
 
 ### 1.0.1 (2015-01-19)
 
+* Dropped support for MediaWiki < 1.24
 * Added `$egGitHubUrl` setting
 * Changed default GitHub raw content url from `https://raw.githubusercontent.com` to `https://cdn.rawgit.com` (thanks to Mike Cariaso)
 
