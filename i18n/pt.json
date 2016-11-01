@@ -1,10 +1,12 @@
 {
 	"@metadata": {
 		"authors": [
-			"Vitorvicentevalente"
+			"Vitorvicentevalente",
+			"Hamilton Abreu"
 		]
 	},
 	"github-desc": "Permite incorporar o conteúdo dos ficheiros do [https://www.github.com/ GitHub]",
 	"github-par-filename": "Nome do ficheiro",
+	"github-par-branchname": "Nome do ramo (<i>branch</i>)",
 	"github-par-reponame": "Nome do repositório"
 }
