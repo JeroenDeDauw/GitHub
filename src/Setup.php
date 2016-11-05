@@ -33,7 +33,6 @@ class Setup {
 		$this->loadSettings();
 
 		$this->registerExtensionCredits();
-		$this->registerMessageFiles();
 		$this->registerParserHookHandler();
 	}
 
@@ -49,11 +48,6 @@ class Setup {
 			'descriptionmsg' => 'github-desc',
 			'license-name' => 'GPL-2.0+'
 		);
-	}
-
-	private function registerMessageFiles() {
-		$this->globals['wgExtensionMessagesFiles']['GitHubMagic'] = $this->rootDirectory . '/GitHub.i18n.magic.php';
-		$this->globals['wgMessagesDirs']['GitHub'] = $this->rootDirectory . '/i18n';
 	}
 
 	private function loadSettings() {

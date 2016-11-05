@@ -15,7 +15,6 @@ class SetupTest extends \PHPUnit_Framework_TestCase {
 	public function testCanConstruct() {
 		$inputGlobals = array(
 			'wgExtensionCredits' => array( 'other' => array() ),
-			'wgExtensionMessagesFiles' => array(),
 			'wgHooks' => array( 'ParserFirstCallInit' => array() ),
 		);
 
@@ -23,7 +22,6 @@ class SetupTest extends \PHPUnit_Framework_TestCase {
 		$setup->run();
 
 		$this->assertCount( 1, $inputGlobals['wgExtensionCredits']['other'], 'credits where set' );
-		$this->assertCount( 1, $inputGlobals['wgExtensionMessagesFiles'], 'message files where registered' );
 		$this->assertCount( 1, $inputGlobals['wgHooks']['ParserFirstCallInit'], 'parser hook was registered' );
 	}
 
