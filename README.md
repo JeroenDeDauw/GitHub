@@ -84,6 +84,10 @@ You can also specify the repo name and the branch name: `{{#github:FileName|user
 
 ## Release notes
 
+### 1.1.1 (2016-11-06)
+
+* Fixed critical issue caused by failing i18n registration on recent versions of MediaWiki
+
 ### 1.1.0 (2016-07-11)
 
 * Dropped support for PHP < 5.5
