@@ -19,6 +19,9 @@ if ( is_readable( __DIR__ . '/vendor/autoload.php' ) ) {
 }
 
 if ( defined( 'MEDIAWIKI' ) ) {
+	$GLOBALS['wgExtensionMessagesFiles']['GitHubMagic'] = __DIR__ . '/GitHub.i18n.magic.php';
+	$GLOBALS['wgMessagesDirs']['GitHub'] = __DIR__ . '/i18n';
+
 	$GLOBALS['wgExtensionFunctions'][] = function() {
 		$setup = new \GitHub\Setup( $GLOBALS, __DIR__ );
 		$setup->run();
