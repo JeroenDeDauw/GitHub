@@ -1,0 +1,11 @@
+{
+	"@metadata": {
+		"authors": [
+			"Jon Harald Søby"
+		]
+	},
+	"github-desc": "Tillater innbygging av innholdet til filer fra [https://www.github.com/ GitHub]",
+	"github-par-filename": "Filnavn",
+	"github-par-branchname": "Grennavn",
+	"github-par-reponame": "Repository-navn"
+}
