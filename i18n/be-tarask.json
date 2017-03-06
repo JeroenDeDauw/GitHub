@@ -1,0 +1,11 @@
+{
+	"@metadata": {
+		"authors": [
+			"Renessaince"
+		]
+	},
+	"github-desc": "Дазваляе ўбудоўваць зьмест файлаў з [https://www.github.com/ GitHub]",
+	"github-par-filename": "Імя файла",
+	"github-par-branchname": "Імя галіны",
+	"github-par-reponame": "Назва сховішча"
+}
