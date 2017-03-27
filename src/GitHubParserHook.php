@@ -2,6 +2,7 @@
 
 namespace GitHub;
 
+use ExtensionRegistry;
 use FileFetcher\FileFetcher;
 use FileFetcher\FileFetchingException;
 use Michelf\Markdown;
@@ -22,6 +23,15 @@ class GitHubParserHook implements HookHandler {
 	private $repoName;
 	private $branchName;
 
+	// Parameters for SyntaxHighlight extension (formerly SyntaxHighlight_GeSHi)
+	private $lang;
+	private $line;
+	private $start;
+	private $highlight;
+	private $inline;
+
+	private static $syntaxHighlightFields = array('lang', 'line', 'start', 'highlight', 'inline');
+
 	/**
 	 * @param FileFetcher $fileFetcher
 	 * @param string $gitHubUrl
@@ -34,7 +44,7 @@ class GitHubParserHook implements HookHandler {
 	public function handle( Parser $parser, ProcessingResult $result ) {
 		$this->setFields( $result );
 
-		return $this->getRenderedContent();
+		return $this->getRenderedContent($parser);
 	}
 
 	private function setFields( ProcessingResult $result ) {
@@ -43,13 +53,57 @@ class GitHubParserHook implements HookHandler {
 		$this->fileName = $params['file']->getValue();
 		$this->repoName = $params['repo']->getValue();
 		$this->branchName = $params['branch']->getValue();
+
+		foreach ( self::$syntaxHighlightFields as $val ) {
+			if ( isset( $params[$val] ) ) {
+				$this->$val = $this->cleanField( $params[$val]->getValue() );
+			}
+			else {
+				$this->$val = null;
+			}
+		}
 	}
 
-	private function getRenderedContent() {
+	private function cleanField( $val ) {
+		if ( $val !== null ) {
+			$val = trim( $val, "'\"" );
+		}
+		return $val;
+	}
+
+	private function getRenderedContent(Parser $parser) {
 		$content = $this->getFileContent();
 
 		if ( $this->isMarkdownFile() ) {
 			$content = $this->renderAsMarkdown( $content );
+		}
+		else if ($this->lang !== "") {
+			if ( ExtensionRegistry::getInstance()->isLoaded( 'SyntaxHighlight' ) ) {
+				// Use SyntaxHighlight specifically
+				$tag = "syntaxhighlight";
+			}
+			else {
+				// Some other extensions also watch for this
+				$tag = "source";
+			}
+
+			$syntax_highlight = "<$tag lang=\"". $this->lang ."\"";
+			$syntax_highlight .= " start=\"". $this->start ."\"";
+
+			if ( $this->line !== null ) {
+				$syntax_highlight .= " line";
+			}
+
+			if ( $this->highlight !== "" ) {
+				$syntax_highlight .= " highlight=\"". $this->highlight ."\"";
+			}
+
+			if ( $this->inline !== null ) {
+				$syntax_highlight .= " inline";
+			}
+
+			$syntax_highlight .= ">$content</$tag>";
+			$content = $parser->recursiveTagParse( $syntax_highlight, null );
 		}
 
 		return $content;
