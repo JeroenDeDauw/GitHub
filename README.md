@@ -14,6 +14,7 @@ On Packagist:
 
 * [PHP](http://www.php.net) 5.5 or later (HHVM and PHP 7 are supported)
 * [MediaWiki](https://www.mediawiki.org) 1.24 or later (earlier versions likely work when using [ExtensionInstaller](https://github.com/JeroenDeDauw/ExtensionInstaller))
+* [SyntaxHighlight](https://www.mediawiki.org/wiki/Extension:SyntaxHighlight) extension enabled and configured if you want code syntax highlighting.
 * Installation via [Composer](http://getcomposer.org/)
 
 ## Installation
@@ -80,9 +81,20 @@ The default is `'simple'`. You can change this setting as follows:
 Add `{{#github:FileName}}` to your wiki page, where FileName is the name of the file you want to embed.
 This can include a path, for instance `{{#github:docs/INSTALL.md}}`.
 
-You can also specify the repo name and the branch name: `{{#github:FileName|user/repo|branchName}}`
+You can also specify the repo name and the branch name: `{{#github:FileName|user/repo|branchName}}`.
+
+If you want syntax highlighting, this extension uses the same attributes as the [SyntaxHighlight](https://www.mediawiki.org/wiki/Extension:SyntaxHighlight) extension (lang, line, start, highlight, inline). Theses can be specified in any order using the attribute names. Without the attribute names, they must be specified in order. 
+
+``{{#github:FileName|user/repo|branchName|lang=bash|line=1|start=1|highlight=1,5,4|inline=0}}``
+``{{#github:FileName|user/repo|branchName|bash|1|1|1,5,4|0}}``
+
+The defaults are line=0, start=1, and inline=0 when this functionality is activated.
 
 ## Release notes
+
+### 1.1.2 (2017-04-02)
+
+* Added support for syntax highlighting using MediaWiki's included SyntaxHighlight extension.
 
 ### 1.1.1 (2016-11-06)
 
