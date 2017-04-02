@@ -8,5 +8,10 @@
 	"github-desc": "Allows embedding the contents of files from [https://www.github.com/ GitHub]",
 	"github-par-filename": "File name",
 	"github-par-branchname": "Branch name",
-	"github-par-reponame": "Repository name"
+	"github-par-reponame": "Repository name",
+        "github-par-lang": "Defines what lexer to use and affects how the extension highlights the source code.",
+        "github-par-line": "Enables line numbers",
+        "github-par-start": "Defines the starting line number of the code block. The line attribute must be enabled.",
+        "github-par-highlight": "Specifies which lines should be highlighted. Multiple numbers can be specified using commas.",
+        "github-par-inline": "Indicates the source code should be inline instead of in block format."
 }
