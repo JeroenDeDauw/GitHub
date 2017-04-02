@@ -127,23 +127,26 @@ class Setup {
 					'message' => 'github-par-lang',
 				),
 				'line' => array(
-					'default' => null,
+					'default' => false,
 					'message' => 'github-par-line',
+					'type'    => 'boolean',
 				),
 				'start' => array(
-					'default' => '1',
+					'default' => 1,
 					'message' => 'github-par-start',
+					'type'    => 'integer',
 				),
 				'highlight' => array(
 					'default' => '',
 					'message' => 'github-par-highlight',
 				),
 				'inline' => array(
-					'default' => null,
+					'default' => false,
 					'message' => 'github-par-inline',
+					'type'    => 'boolean',
 				),
 			),
-			array( 'file', 'repo', 'branch', 'lang', 'line', 'start', 'highlight', 'inline')
+			array( 'file', 'repo', 'branch', 'lang', 'line', 'start', 'highlight', 'inline' )
 		);
 	}
 
