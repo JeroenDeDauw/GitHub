@@ -6,18 +6,22 @@ originalDirectory=$(pwd)
 
 cd ..
 
-wget https://github.com/wikimedia/mediawiki/archive/$MW.tar.gz
+wget https://github.com/wikimedia/mediawiki-core/archive/$MW.tar.gz
 tar -zxf $MW.tar.gz
 mv mediawiki-$MW phase3
 
 cd phase3
 
-git checkout $MW
-
 composer install --prefer-source
 
-mysql -e 'create database its_a_mw;'
-php maintenance/install.php --dbtype $DBTYPE --dbuser root --dbname its_a_mw --dbpath $(pwd) --pass nyan TravisWiki admin
+if [ "$DB" == "postgres" ]
+then
+	psql -c 'create database its_a_mw;' -U postgres
+	php maintenance/install.php --dbtype $DBTYPE --dbuser postgres --dbname its_a_mw --pass nyan TravisWiki admin --scriptpath /TravisWiki
+else
+	mysql -e 'create database its_a_mw;'
+	php maintenance/install.php --dbtype $DBTYPE --dbuser root --dbname its_a_mw --dbpath $(pwd) --pass nyan TravisWiki admin --scriptpath /TravisWiki
+fi
 
 cd extensions
 
@@ -25,6 +29,8 @@ cp -r $originalDirectory GitHub
 
 cd GitHub
 composer install --prefer-source
+
+[[ ! -z $SMW ]] && composer require "mediawiki/semantic-media-wiki=$SMW" --prefer-source
 
 cd ../..
 

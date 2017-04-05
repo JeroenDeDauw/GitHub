@@ -122,10 +122,34 @@ class Setup {
 					'aliases' => 'branchname',
 					'message' => 'github-par-branchname',
 				),
+				'lang' => array(
+					'default' => '',
+					'message' => 'github-par-lang',
+				),
+				'line' => array(
+					'default' => false,
+					'message' => 'github-par-line',
+					'type'    => 'boolean',
+				),
+				'start' => array(
+					'default' => 1,
+					'message' => 'github-par-start',
+					'type'    => 'integer',
+				),
+				'highlight' => array(
+					'default' => '',
+					'message' => 'github-par-highlight',
+				),
+				'inline' => array(
+					'default' => false,
+					'message' => 'github-par-inline',
+					'type'    => 'boolean',
+				),
 			),
-			array( 'file', 'repo', 'branch' )
+			array( 'file', 'repo', 'branch', 'lang' )
 		);
 	}
+
 
 	public function getGitHubHookHandler() {
 		return new GitHubParserHook(

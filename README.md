@@ -13,7 +13,7 @@ On Packagist:
 ## Requirements
 
 * [PHP](http://www.php.net) 5.5 or later (HHVM and PHP 7 are supported)
-* [MediaWiki](https://www.mediawiki.org) 1.24 or later (earlier versions likely work when using [ExtensionInstaller](https://github.com/JeroenDeDauw/ExtensionInstaller))
+* [MediaWiki](https://www.mediawiki.org) 1.24 or
 * Installation via [Composer](http://getcomposer.org/)
 
 ## Installation
@@ -21,28 +21,13 @@ On Packagist:
 The recommended way to install the GitHub extension is with [Composer](http://getcomposer.org) using
 [MediaWiki 1.22 built-in support for Composer](https://www.mediawiki.org/wiki/Composer).
 
-##### Step 1
+In your MediaWiki root directory, you can execute:
 
-Go to the root directory of your MediaWiki installation.
+    composer require jeroen/mediawiki-github "~1.2"
+    
+For more details on extension installation via Composer, see the documentation on MediaWiki.org.
 
-##### Step 2
-
-If you have previously installed Composer skip to step 3.
-
-To install Composer:
-
-    wget http://getcomposer.org/composer.phar
-
-##### Step 3
-
-Now using Composer, install the GitHub extension.
-
-If you do not have a composer.json file yet, copy the composer-example.json file to composer.json. If you
-are using the ExtensionInstaller, the file to copy will be named example.json, rather than composer-example.json. When this is done, run:
-
-    php composer.phar require jeroen/mediawiki-github "@dev"
-
-##### Verify installation success
+### Verify installation success
 
 Go to Special:Version and see if GitHub is listed there. If it is, you successfully installed it!
 
@@ -75,14 +60,36 @@ The default is `'simple'`. You can change this setting as follows:
 
     $egGitHubFetcher = 'mediawiki';
 
+### Syntax highlighting
+
+If you want code syntax highlighting you need to have the
+[SyntaxHighlight](https://www.mediawiki.org/wiki/Extension:SyntaxHighlight) extension enabled and configured. 
+
 ## Usage
 
 Add `{{#github:FileName}}` to your wiki page, where FileName is the name of the file you want to embed.
 This can include a path, for instance `{{#github:docs/INSTALL.md}}`.
 
-You can also specify the repo name and the branch name: `{{#github:FileName|user/repo|branchName}}`
+You can also specify the repo name and the branch name: `{{#github:FileName|user/repo|branchName}}`.
+
+For syntax highlighting, this extension uses the same attributes as the
+[SyntaxHighlight](https://www.mediawiki.org/wiki/Extension:SyntaxHighlight)
+extension: lang, line, start, highlight, inline. Theses can be specified in any order using the
+attribute names.
+
+``{{#github:FileName|user/repo|branchName|lang=bash|line=1|start=1|highlight=1,5,4|inline=0}}``
+
+The `lang` parameter can be specified as the fourth positional argument.
+
+``{{#github:FileName|user/repo|branchName|bash}}``
+
+The defaults are line=0, start=1, and inline=0 when this functionality is activated.
 
 ## Release notes
+
+### 1.2.0 (2017-04-17)
+
+* Added support for syntax highlighting using MediaWiki's included SyntaxHighlight extension (by Shay Harding)
 
 ### 1.1.1 (2016-11-06)
 

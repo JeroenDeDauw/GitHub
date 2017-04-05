@@ -41,14 +41,19 @@ class GitHubParserHookTest extends \PHPUnit_Framework_TestCase {
 		$parser = $this->createMock( 'Parser' );
 		$params = $this->newParams();
 
-		return $renderResult = $parserHook->handle( $parser, $params );
+		return $parserHook->handle( $parser, $params );
 	}
 
 	private function newParams() {
-		return $params = new ProcessingResult( array(
+		return new ProcessingResult( array(
 			'file' => new ProcessedParam( 'file', $this->file, false ),
 			'repo' => new ProcessedParam( 'repo', $this->repo, false ),
 			'branch' => new ProcessedParam( 'branch', $this->branch, true ),
+			'lang' => new ProcessedParam( 'lang', '', true ),
+			'line' => new ProcessedParam( 'line', false, true ),
+			'start' => new ProcessedParam( 'start', 1, true ),
+			'highlight' => new ProcessedParam( 'highlight', '', true ),
+			'inline' => new ProcessedParam( 'inline', false, true ),
 		) );
 	}
 
@@ -84,6 +89,14 @@ class GitHubParserHookTest extends \PHPUnit_Framework_TestCase {
 		$this->assertEquals( $expectedRenderedResult, $renderResult );
 	}
 
+	/**
+	 * @dataProvider nonMdProvider
+	 */
+	public function testRenderingWithNonMdFileAsIs( $notMd, $fileName ) {
+		$this->file = $fileName;
+		$this->assertFileContentRendersAs( $notMd, $notMd );
+	}
+
 	public function nonMdProvider() {
 		return array(
 			array(
@@ -103,14 +116,6 @@ class GitHubParserHookTest extends \PHPUnit_Framework_TestCase {
 				'someFileWithoutExtension',
 			),
 		);
-	}
-
-	/**
-	 * @dataProvider nonMdProvider
-	 */
-	public function testRenderingWithNonMdFileAsIs( $notMd, $fileName ) {
-		$this->file = $fileName;
-		$this->assertFileContentRendersAs( $notMd, $notMd );
 	}
 
 }

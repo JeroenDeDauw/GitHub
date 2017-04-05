@@ -22,6 +22,14 @@ class GitHubParserHook implements HookHandler {
 	private $repoName;
 	private $branchName;
 
+	// Parameters for SyntaxHighlight extension (formerly SyntaxHighlight_GeSHi)
+	// https://www.mediawiki.org/wiki/Extension:SyntaxHighlight
+	private $syntaxHighlightLanguage;
+	private $syntaxHighlightEnableLineNumbers;
+	private $syntaxHighlightStartingLineNumber;
+	private $syntaxHighlightHighlightedLines;
+	private $syntaxHighlightInlineSource;
+
 	/**
 	 * @param FileFetcher $fileFetcher
 	 * @param string $gitHubUrl
@@ -34,7 +42,7 @@ class GitHubParserHook implements HookHandler {
 	public function handle( Parser $parser, ProcessingResult $result ) {
 		$this->setFields( $result );
 
-		return $this->getRenderedContent();
+		return $this->getRenderedContent( $parser );
 	}
 
 	private function setFields( ProcessingResult $result ) {
@@ -43,13 +51,39 @@ class GitHubParserHook implements HookHandler {
 		$this->fileName = $params['file']->getValue();
 		$this->repoName = $params['repo']->getValue();
 		$this->branchName = $params['branch']->getValue();
+
+		$this->syntaxHighlightLanguage = $params['lang']->getValue();
+		$this->syntaxHighlightEnableLineNumbers = $params['line']->getValue();
+		$this->syntaxHighlightStartingLineNumber = $params['start']->getValue();
+		$this->syntaxHighlightHighlightedLines = $params['highlight']->getValue();
+		$this->syntaxHighlightInlineSource = $params['inline']->getValue();
 	}
 
-	private function getRenderedContent() {
+	private function getRenderedContent( Parser $parser ) {
 		$content = $this->getFileContent();
 
 		if ( $this->isMarkdownFile() ) {
-			$content = $this->renderAsMarkdown( $content );
+			return $this->renderAsMarkdown( $content );
+		}
+
+		if ( $this->syntaxHighlightLanguage !== "" ) {
+			$syntax_highlight = "<syntaxhighlight lang=\"". $this->syntaxHighlightLanguage ."\"";
+			$syntax_highlight .= " start=\"". $this->syntaxHighlightStartingLineNumber ."\"";
+
+			if ( $this->syntaxHighlightEnableLineNumbers === true ) {
+				$syntax_highlight .= " line";
+			}
+
+			if ( $this->syntaxHighlightHighlightedLines !== "" ) {
+				$syntax_highlight .= " highlight=\"". $this->syntaxHighlightHighlightedLines ."\"";
+			}
+
+			if ( $this->syntaxHighlightInlineSource === true ) {
+				$syntax_highlight .= " inline";
+			}
+
+			$syntax_highlight .= ">$content</syntaxhighlight>";
+			return $parser->recursiveTagParse( $syntax_highlight, null );
 		}
 
 		return $content;
