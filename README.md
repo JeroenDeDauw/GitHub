@@ -4,6 +4,7 @@ Simple MediaWiki extension for embedding content of files hosted in GitHub git r
 
 Build status:
 [![Build Status](https://secure.travis-ci.org/JeroenDeDauw/GitHub.png?branch=master)](http://travis-ci.org/JeroenDeDauw/GitHub)
+[![Code Coverage](https://scrutinizer-ci.com/g/JeroenDeDauw/GitHub/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/JeroenDeDauw/GitHub/?branch=master)
 [![Scrutinizer Quality Score](https://scrutinizer-ci.com/g/JeroenDeDauw/GitHub/badges/quality-score.png?s=b928c81a24ec2d8fcf6dd2b291b41c76ef528dbe)](https://scrutinizer-ci.com/g/JeroenDeDauw/GitHub/)
 
 On Packagist:
