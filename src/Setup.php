@@ -146,7 +146,7 @@ class Setup {
 					'type'    => 'boolean',
 				),
 			),
-			array( 'file', 'repo', 'branch', 'lang', 'line', 'start', 'highlight', 'inline' )
+			array( 'file', 'repo', 'branch', 'lang' )
 		);
 	}
 

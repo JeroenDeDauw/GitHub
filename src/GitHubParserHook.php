@@ -63,9 +63,10 @@ class GitHubParserHook implements HookHandler {
 		$content = $this->getFileContent();
 
 		if ( $this->isMarkdownFile() ) {
-			$content = $this->renderAsMarkdown( $content );
+			return $this->renderAsMarkdown( $content );
 		}
-		else if ( $this->syntaxHighlightLanguage !== "" ) {
+
+		if ( $this->syntaxHighlightLanguage !== "" ) {
 			$syntax_highlight = "<syntaxhighlight lang=\"". $this->syntaxHighlightLanguage ."\"";
 			$syntax_highlight .= " start=\"". $this->syntaxHighlightStartingLineNumber ."\"";
 
@@ -82,7 +83,7 @@ class GitHubParserHook implements HookHandler {
 			}
 
 			$syntax_highlight .= ">$content</syntaxhighlight>";
-			$content = $parser->recursiveTagParse( $syntax_highlight, null );
+			return $parser->recursiveTagParse( $syntax_highlight, null );
 		}
 
 		return $content;
