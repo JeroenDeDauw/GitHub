@@ -1,8 +1,5 @@
 language: php
 
-env:
-  - THENEEDFORTHIS=FAIL
-
 matrix:
   include:
     - env: DBTYPE=mysql; MW=master
@@ -13,16 +10,19 @@ matrix:
       php: 5.6
     - env: DBTYPE=mysql; MW=master
       php: hhvm
-  exclude:
-    - env: THENEEDFORTHIS=FAIL
 
-before_script: bash ./build/travis/before_script.sh
+install:
+  - travis_retry composer self-update
+  - bash .travis.install.sh
 
-script: bash ./build/travis/script.sh
+script: ../phase3/tests/phpunit/phpunit.php -c ../phase3/extensions/GitHub/phpunit.xml.dist
 
-notifications:
-  email:
-    recipients:
-      - jeroendedauw@gmail.com
-    on_success: change
-    on_failure: always
+after_success:
+  - if [[ "$TYPE" != "coverage" ]]; then exit 0; fi
+  - ../phase3/tests/phpunit/phpunit.php -c ../phase3/extensions/GitHub/phpunit.xml.dist --coverage-clover coverage.clover
+  - wget https://scrutinizer-ci.com/ocular.phar
+  - php ocular.phar code-coverage:upload --format=php-clover coverage.clover
+
+cache:
+  directories:
+    - $HOME/.composer/cache
