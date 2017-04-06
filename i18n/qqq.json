@@ -7,5 +7,10 @@
 	"github-desc": "{{desc|name=GitHub|url=https://www.mediawiki.org/wiki/Extension:GitHub}}",
 	"github-par-filename": "Label for the contents of the \"file name\" parameter\n{{Identical|Filename}}",
 	"github-par-branchname": "Label for the contents of the \"branch name\" parameter",
-	"github-par-reponame": "Label for the contents of the \"repository name\" parameter"
+	"github-par-reponame": "Label for the contents of the \"repository name\" parameter",
+	"github-par-lang": "Label for the contents of the syntax highlighting \"lang\" parameter",
+	"github-par-line": "Label for the contents of the syntax highlighting \"line\" parameter",
+	"github-par-start": "Label for the contents of the syntax highlighting \"start\" parameter",
+	"github-par-highlight": "Label for the contents of the syntax highlighting \"highlight\" parameter",
+	"github-par-inline": "Label for the contents of the syntax highlighting \"inline\" parameter"
 }
