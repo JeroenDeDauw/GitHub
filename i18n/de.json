@@ -5,13 +5,13 @@
 			"Metalhead64"
 		]
 	},
-	"github-desc": "Ermöglicht das Einbetten des Inhalts von Dateien, die sich bei [https://www.github.com/ GitHub] befinden",
+	"github-desc": "Ermöglicht das Einbetten des Inhalts von Dateien, die bei [https://www.github.com/ GitHub] vorgehalten werden.",
 	"github-par-filename": "Name der Datei",
 	"github-par-branchname": "Name des Versionszweigs",
 	"github-par-reponame": "Name des Repositoriums",
-	"github-par-lang": "Definiert, welcher Lexer verwendet werden soll und beeinflusst, wie die Erweiterung den Quellcode hervorhebt.",
-	"github-par-line": "Aktiviert Zeilennummern",
-	"github-par-start": "Definiert die Start-Zeilennummer des Codeblocks. Das Zeilenattribut muss aktiviert sein.",
-	"github-par-highlight": "Gibt an, welche Zeilen hervorgehoben werden sollen. Mehrere Zahlen können mithilfe von Kommata angegeben werden.",
-	"github-par-inline": "Zeigt an, dass der Quellcode im Inline- statt im Blockformat sein sollte."
+	"github-par-lang": "Legt fest, welche Formatierung für den Code angewandt werden soll.",
+	"github-par-line": "Legt fest, ob die Anzeige von Zeilennummern beim Code aktiv sein soll.",
+	"github-par-start": "Legt die Zeilennummer fest, mit der die Anzeige des Codes gestartet werden soll. Die Zeilennummerierung muss dabei aktiv sein.",
+	"github-par-highlight": "Legt fest, welche Zeilen des Codes hervorgehoben werden sollen. Mehrere Zahlennummern können durch Kommata getrennt angegeben werden.",
+	"github-par-inline": "Legt fest, ob der Code umgebrochen oder als Block angezeigt werden soll."
 }

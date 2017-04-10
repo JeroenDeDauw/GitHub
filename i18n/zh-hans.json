@@ -7,5 +7,10 @@
 	"github-desc": "允许嵌入来自[https://www.github.com/ GitHub]的文件内容",
 	"github-par-filename": "文件名",
 	"github-par-branchname": "分支名称",
-	"github-par-reponame": "版本库名称"
+	"github-par-reponame": "版本库名称",
+	"github-par-lang": "定义要使用的词法分析器，并影响扩展高亮源代码的方式。",
+	"github-par-line": "启用行数",
+	"github-par-start": "定义代码块的起始行数。必须启用行属性。",
+	"github-par-highlight": "指定要高亮的行。可以使用逗号来定义多个行数。",
+	"github-par-inline": "指示源代码应为行内而不是块格式。"
 }
