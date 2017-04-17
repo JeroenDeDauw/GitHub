@@ -2,11 +2,13 @@
 	"@metadata": {
 		"authors": [
 			"Revi",
-			"아라"
+			"아라",
+			"Ykhwong"
 		]
 	},
 	"github-desc": "[https://www.github.com GitHub]에서 파일 내용을 넣을 수 있게 합니다",
 	"github-par-filename": "파일 이름",
 	"github-par-branchname": "브랜치 이름",
-	"github-par-reponame": "저장소 이름"
+	"github-par-reponame": "저장소 이름",
+	"github-par-line": "줄 번호 사용하기"
 }

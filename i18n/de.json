@@ -5,7 +5,7 @@
 			"Metalhead64"
 		]
 	},
-	"github-desc": "Ermöglicht das Einbetten des Inhalts von Dateien, die bei [https://www.github.com/ GitHub] vorgehalten werden.",
+	"github-desc": "Ermöglicht das Einbetten des Inhalts von Dateien, die bei [https://www.github.com/ GitHub] vorgehalten werden",
 	"github-par-filename": "Name der Datei",
 	"github-par-branchname": "Name des Versionszweigs",
 	"github-par-reponame": "Name des Repositoriums",
