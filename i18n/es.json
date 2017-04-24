@@ -8,5 +8,6 @@
 	"github-desc": "Permite incrustar el contenido de archivos alojados en [https://www.github.com/ GitHub]",
 	"github-par-filename": "Nombre del archivo",
 	"github-par-branchname": "Nombre de la rama",
-	"github-par-reponame": "Nombre del repositorio"
+	"github-par-reponame": "Nombre del repositorio",
+	"github-par-line": "Activa la numeración de los renglones"
 }
