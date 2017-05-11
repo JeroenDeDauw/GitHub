@@ -9,5 +9,7 @@
 	"github-par-filename": "Nome de ficheiro",
 	"github-par-branchname": "Nome da rama",
 	"github-par-reponame": "Nome do repositorio",
-	"github-par-line": "Activa a numeración das liñas"
+	"github-par-line": "Activa a numeración das liñas",
+	"github-par-start": "Define o número de liña de comezo do bloque de código. O atributo de liña debe estar activo.",
+	"github-par-highlight": "Especifica que liñas deben estar resaltadas. Poden indicarse varios números separándoos por comas."
 }
