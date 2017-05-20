@@ -1,11 +1,16 @@
 {
 	"@metadata": {
 		"authors": [
-			"Renessaince"
+			"Renessaince",
+			"Red Winged Duck"
 		]
 	},
 	"github-desc": "Дазваляе ўбудоўваць зьмест файлаў з [https://www.github.com/ GitHub]",
 	"github-par-filename": "Імя файла",
 	"github-par-branchname": "Імя галіны",
-	"github-par-reponame": "Назва сховішча"
+	"github-par-reponame": "Назва сховішча",
+	"github-par-lang": "Вызначае, якую лексыку ўжыць і ўплывае на тое, як пашырэньне вылучае крынічны код.",
+	"github-par-line": "Падключае нумары радкоў",
+	"github-par-start": "Вызначае нумар пачатковага радка блёку коду. Атрыбут радка мусіць быць падключаны.",
+	"github-par-highlight": "Вызначае, якія радкі павінныя быць вылучаныя. Можна пазначыць некалькі нумароў праз коску."
 }
