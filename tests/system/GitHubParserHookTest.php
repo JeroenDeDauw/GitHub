@@ -20,11 +20,13 @@ class GitHubParserHookTest extends TestCase {
 	private $file;
 	private $repo;
 	private $branch;
+	private $lang;
 
 	public function setUp() {
 		$this->file = 'README.md';
 		$this->repo = 'JeroenDeDauw/GitHub';
 		$this->branch = 'master';
+		$this->lang = '';
 	}
 
 	public function testUrlGetsBuildCorrectly() {
@@ -50,13 +52,20 @@ class GitHubParserHookTest extends TestCase {
 		return new ProcessingResult( array(
 			'file' => new ProcessedParam( 'file', $this->file, false ),
 			'repo' => new ProcessedParam( 'repo', $this->repo, false ),
-			'branch' => new ProcessedParam( 'branch', $this->branch, true ),
-			'lang' => new ProcessedParam( 'lang', '', true ),
+			'branch' => new ProcessedParam( 'branch', $this->branch, false ),
+			'lang' => new ProcessedParam( 'lang', $this->lang, false ),
 			'line' => new ProcessedParam( 'line', false, true ),
 			'start' => new ProcessedParam( 'start', 1, true ),
 			'highlight' => new ProcessedParam( 'highlight', '', true ),
 			'inline' => new ProcessedParam( 'inline', false, true ),
 		) );
+	}
+
+	/**
+	 * @dataProvider makrdownProvider
+	 */
+	public function testRenderWithMakrkdownFile( $markdown, $html ) {
+		$this->assertFileContentRendersAs( $markdown, $html );
 	}
 
 	public function makrdownProvider() {
@@ -72,13 +81,6 @@ class GitHubParserHookTest extends TestCase {
 		);
 	}
 
-	/**
-	 * @dataProvider makrdownProvider
-	 */
-	public function testRenderWithMakrkdownFile( $markdown, $html ) {
-		$this->assertFileContentRendersAs( $markdown, $html );
-	}
-
 	private function assertFileContentRendersAs( $fileContent, $expectedRenderedResult ) {
 		$fileFetcher = $this->createMock( FileFetcher::class );
 
@@ -88,15 +90,7 @@ class GitHubParserHookTest extends TestCase {
 
 		$renderResult = $this->runHookWithFileFetcher( $fileFetcher );
 
-		$this->assertEquals( $expectedRenderedResult, $renderResult );
-	}
-
-	/**
-	 * @dataProvider nonMdProvider
-	 */
-	public function testRenderingWithNonMdFileAsIs( $notMd, $fileName ) {
-		$this->file = $fileName;
-		$this->assertFileContentRendersAs( $notMd, $notMd );
+		$this->assertSame( $expectedRenderedResult, $renderResult );
 	}
 
 	public function nonMdProvider() {
@@ -119,5 +113,37 @@ class GitHubParserHookTest extends TestCase {
 			),
 		);
 	}
+
+	/**
+	 * @dataProvider nonMdProvider
+	 */
+	public function testRenderingWithNonMdFileAsIs( $notMd, $fileName ) {
+		$this->file = $fileName;
+		$this->assertFileContentRendersAs( $notMd, $notMd );
+	}
+
+	public function testRenderingWithLangBash() {
+		$this->file = 'hi.sh';
+		$this->lang = 'bash';
+
+		$fileFetcher = $this->createMock( FileFetcher::class );
+
+		$fileFetcher->expects( $this->once() )
+			->method( 'fetchFile' )
+			->will( $this->returnValue( '# Ohai there!' ) );
+
+		$parserHook = new GitHubParserHook( new GitHubFetcher( $fileFetcher, 'https://cdn.rawgit.com' ) );
+
+		$parser = $this->createMock( 'Parser' );
+
+		$parser->expects( $this->once() )
+			->method( 'recursiveTagParse' )
+			->with( $this->equalTo( '<syntaxhighlight lang="bash" start="1"># Ohai there!</syntaxhighlight>' ) )
+			->willReturn( null );
+
+		$this->assertSame( '', $parserHook->handle( $parser, $this->newParams() ) );
+	}
+
+	// TODO: syntaxhighlight: prevent content from terminating syntaxhighlight and embedding evil stuff
 
 }

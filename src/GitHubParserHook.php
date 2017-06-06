@@ -58,31 +58,37 @@ class GitHubParserHook implements HookHandler {
 	}
 
 	private function getRenderedContent( string $content, string $fileName ): string {
-		if ( $this->isMarkdownFile( $fileName ) ) {
-			return $this->renderAsMarkdown( $content );
+		if ( $this->syntaxHighlightLanguage === '' ) {
+			if ( $this->isMarkdownFile( $fileName ) ) {
+				return $this->renderAsMarkdown( $content );
+			}
+
+			return $content;
 		}
 
-		if ( $this->syntaxHighlightLanguage !== "" ) {
-			$syntax_highlight = "<syntaxhighlight lang=\"". $this->syntaxHighlightLanguage ."\"";
-			$syntax_highlight .= " start=\"". $this->syntaxHighlightStartingLineNumber ."\"";
+		$syntax_highlight = "<syntaxhighlight lang=\"". $this->syntaxHighlightLanguage ."\"";
+		$syntax_highlight .= " start=\"". $this->syntaxHighlightStartingLineNumber ."\"";
 
-			if ( $this->syntaxHighlightEnableLineNumbers === true ) {
-				$syntax_highlight .= " line";
-			}
-
-			if ( $this->syntaxHighlightHighlightedLines !== "" ) {
-				$syntax_highlight .= " highlight=\"". $this->syntaxHighlightHighlightedLines ."\"";
-			}
-
-			if ( $this->syntaxHighlightInlineSource === true ) {
-				$syntax_highlight .= " inline";
-			}
-
-			$syntax_highlight .= ">$content</syntaxhighlight>";
-			return $this->parser->recursiveTagParse( $syntax_highlight, null );
+		if ( $this->syntaxHighlightEnableLineNumbers === true ) {
+			$syntax_highlight .= " line";
 		}
 
-		return $content;
+		if ( $this->syntaxHighlightHighlightedLines !== "" ) {
+			$syntax_highlight .= " highlight=\"". $this->syntaxHighlightHighlightedLines ."\"";
+		}
+
+		if ( $this->syntaxHighlightInlineSource === true ) {
+			$syntax_highlight .= " inline";
+		}
+
+		$syntax_highlight .= ">$content</syntaxhighlight>";
+		$parsed = $this->parser->recursiveTagParse( $syntax_highlight, null );
+
+		if ( is_string( $parsed ) ) {
+			return $parsed;
+		}
+
+		return '';
 	}
 
 	private function isMarkdownFile( string $fileName ): bool {
