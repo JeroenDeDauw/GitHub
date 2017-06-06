@@ -5,6 +5,9 @@ namespace GitHub\Tests\Phpunit;
 use GitHub\ContentPurifier;
 use PHPUnit\Framework\TestCase;
 
+/**
+ * @covers GitHub\ContentPurifier
+ */
 class ContentPurifierTest extends TestCase {
 
 	/**

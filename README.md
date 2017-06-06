@@ -92,6 +92,7 @@ The defaults are line=0, start=1, and inline=0 when this functionality is activa
 
 * Dropped support for PHP < 7.0
 * Dropped support for MediaWiki < 1.27
+* Made code more robust in failure cases
 
 ### 1.2.0 (2017-04-17)
 
