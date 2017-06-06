@@ -24,6 +24,8 @@ class SetupTest extends TestCase {
 
 		$this->assertCount( 1, $inputGlobals['wgExtensionCredits']['other'], 'credits where set' );
 		$this->assertCount( 1, $inputGlobals['wgHooks']['ParserFirstCallInit'], 'parser hook was registered' );
+
+		$setup->getGitHubHookHandler();
 	}
 
 }

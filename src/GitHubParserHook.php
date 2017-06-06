@@ -15,12 +15,12 @@ use ParserHooks\HookHandler;
  */
 class GitHubParserHook implements HookHandler {
 
-	private $fileFetcher;
-	private $gitHubUrl;
+	private $gitHubFetcher;
 
-	private $fileName;
-	private $repoName;
-	private $branchName;
+	/**
+	 * @var Parser
+	 */
+	private $parser;
 
 	// Parameters for SyntaxHighlight extension (formerly SyntaxHighlight_GeSHi)
 	// https://www.mediawiki.org/wiki/Extension:SyntaxHighlight
@@ -30,24 +30,26 @@ class GitHubParserHook implements HookHandler {
 	private $syntaxHighlightHighlightedLines;
 	private $syntaxHighlightInlineSource;
 
-	public function __construct( FileFetcher $fileFetcher, string $gitHubUrl ) {
-		$this->fileFetcher = $fileFetcher;
-		$this->gitHubUrl = $gitHubUrl;
+	public function __construct( GitHubFetcher $gitHubFetcher ) {
+		$this->gitHubFetcher = $gitHubFetcher;
 	}
 
 	public function handle( Parser $parser, ProcessingResult $result ): string {
-		$this->setFields( $result );
+		$this->parser = $parser;
 
-		return $this->getRenderedContent( $parser );
+		$params = $result->getParameters();
+		$this->setFields( $params );
+
+		$content = $this->gitHubFetcher->getFileContent(
+			$params['repo']->getValue(),
+			$params['branch']->getValue(),
+			$params['file']->getValue()
+		);
+
+		return $this->getRenderedContent( $content, $params['file']->getValue() );
 	}
 
-	private function setFields( ProcessingResult $result ) {
-		$params = $result->getParameters();
-
-		$this->fileName = $params['file']->getValue();
-		$this->repoName = $params['repo']->getValue();
-		$this->branchName = $params['branch']->getValue();
-
+	private function setFields( array $params ) {
 		$this->syntaxHighlightLanguage = $params['lang']->getValue();
 		$this->syntaxHighlightEnableLineNumbers = $params['line']->getValue();
 		$this->syntaxHighlightStartingLineNumber = $params['start']->getValue();
@@ -55,62 +57,48 @@ class GitHubParserHook implements HookHandler {
 		$this->syntaxHighlightInlineSource = $params['inline']->getValue();
 	}
 
-	private function getRenderedContent( Parser $parser ): string {
-		$content = $this->getFileContent();
-
-		if ( $this->isMarkdownFile() ) {
-			return $this->renderAsMarkdown( $content );
-		}
-
-		if ( $this->syntaxHighlightLanguage !== "" ) {
-			$syntax_highlight = "<syntaxhighlight lang=\"". $this->syntaxHighlightLanguage ."\"";
-			$syntax_highlight .= " start=\"". $this->syntaxHighlightStartingLineNumber ."\"";
-
-			if ( $this->syntaxHighlightEnableLineNumbers === true ) {
-				$syntax_highlight .= " line";
+	private function getRenderedContent( string $content, string $fileName ): string {
+		if ( $this->syntaxHighlightLanguage === '' ) {
+			if ( $this->isMarkdownFile( $fileName ) ) {
+				return $this->renderAsMarkdown( $content );
 			}
 
-			if ( $this->syntaxHighlightHighlightedLines !== "" ) {
-				$syntax_highlight .= " highlight=\"". $this->syntaxHighlightHighlightedLines ."\"";
-			}
-
-			if ( $this->syntaxHighlightInlineSource === true ) {
-				$syntax_highlight .= " inline";
-			}
-
-			$syntax_highlight .= ">$content</syntaxhighlight>";
-			return $parser->recursiveTagParse( $syntax_highlight, null );
+			return $content;
 		}
 
-		return $content;
-	}
+		$syntax_highlight = "<syntaxhighlight lang=\"". $this->syntaxHighlightLanguage ."\"";
+		$syntax_highlight .= " start=\"". $this->syntaxHighlightStartingLineNumber ."\"";
 
-	private function getFileContent(): string {
-		try {
-			return $this->fileFetcher->fetchFile( $this->getFileUrl() );
+		if ( $this->syntaxHighlightEnableLineNumbers === true ) {
+			$syntax_highlight .= " line";
 		}
-		catch ( FileFetchingException $ex ) {
-			return '';
+
+		if ( $this->syntaxHighlightHighlightedLines !== "" ) {
+			$syntax_highlight .= " highlight=\"". $this->syntaxHighlightHighlightedLines ."\"";
 		}
+
+		if ( $this->syntaxHighlightInlineSource === true ) {
+			$syntax_highlight .= " inline";
+		}
+
+		$syntax_highlight .= ">$content</syntaxhighlight>";
+		$parsed = $this->parser->recursiveTagParse( $syntax_highlight, null );
+
+		if ( is_string( $parsed ) ) {
+			return $parsed;
+		}
+
+		return '';
 	}
 
-	private function getFileUrl(): string {
-		return sprintf(
-			'%s/%s/%s/%s',
-			$this->gitHubUrl,
-			$this->repoName,
-			$this->branchName,
-			$this->fileName
-		);
+	private function isMarkdownFile( string $fileName ): bool {
+		return $this->fileHasExtension( $fileName, 'md' )
+			   || $this->fileHasExtension( $fileName,'markdown' );
 	}
 
-	private function isMarkdownFile(): bool {
-		return $this->fileHasExtension( 'md' ) || $this->fileHasExtension( 'markdown' );
-	}
-
-	private function fileHasExtension( string $extension ): bool {
+	private function fileHasExtension( string $fileName, string $extension ): bool {
 		$fullExtension = '.' . $extension;
-		return substr( $this->fileName, -strlen( $fullExtension ) ) === $fullExtension;
+		return substr( $fileName, -strlen( $fullExtension ) ) === $fullExtension;
 	}
 
 	private function renderAsMarkdown( string $content ): string {
