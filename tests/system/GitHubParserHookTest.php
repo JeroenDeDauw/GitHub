@@ -77,6 +77,10 @@ class GitHubParserHookTest extends TestCase {
 			array(
 				'foo bar baz',
 				"<p>foo bar baz</p>\n"
+			),
+			array(
+				'foo bar baz<script>alert(\'Greetings from github\')</script>',
+				"<p>foo bar baz</p>\n"
 			)
 		);
 	}
@@ -120,6 +124,15 @@ class GitHubParserHookTest extends TestCase {
 	public function testRenderingWithNonMdFileAsIs( $notMd, $fileName ) {
 		$this->file = $fileName;
 		$this->assertFileContentRendersAs( $notMd, $notMd );
+	}
+
+	public function testNonMdContentIsPurified() {
+		$this->file = 'Hello.html';
+
+		$this->assertFileContentRendersAs(
+			'<script>alert("Greetings from github")</script>foo<script>alert(\'Greetings from github\')</script>',
+			'foo'
+		);
 	}
 
 	public function testRenderingWithLangBash() {

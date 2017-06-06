@@ -59,13 +59,22 @@ class GitHubParserHook implements HookHandler {
 
 	private function getRenderedContent( string $content, string $fileName ): string {
 		if ( $this->syntaxHighlightLanguage === '' ) {
-			if ( $this->isMarkdownFile( $fileName ) ) {
-				return $this->renderAsMarkdown( $content );
-			}
-
-			return $content;
+			return ( new ContentPurifier() )
+				->purify( $this->getRenderedNonSyntaxContent( $content, $fileName ) );
 		}
 
+		return $this->getRenderedSyntaxContent( $content );
+	}
+
+	private function getRenderedNonSyntaxContent( string $content, string $fileName ): string {
+		if ( $this->isMarkdownFile( $fileName ) ) {
+			return $this->renderAsMarkdown( $content );
+		}
+
+		return $content;
+	}
+
+	private function getRenderedSyntaxContent( string $content ): string {
 		$syntax_highlight = "<syntaxhighlight lang=\"". $this->syntaxHighlightLanguage ."\"";
 		$syntax_highlight .= " start=\"". $this->syntaxHighlightStartingLineNumber ."\"";
 
