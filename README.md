@@ -88,6 +88,11 @@ The defaults are line=0, start=1, and inline=0 when this functionality is activa
 
 ## Release notes
 
+### 1.3.0 (dev)
+
+* Dropped support for PHP < 7.0
+* Dropped support for MediaWiki < 1.27
+
 ### 1.2.0 (2017-04-17)
 
 * Added support for syntax highlighting using MediaWiki's included SyntaxHighlight extension (by Shay Harding)

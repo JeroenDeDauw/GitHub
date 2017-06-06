@@ -11,7 +11,7 @@ use FileFetcher\FileFetchingException;
  */
 class MediaWikiFileFetcher implements FileFetcher {
 
-	public function fetchFile( $fileUrl ) {
+	public function fetchFile( string $fileUrl ): string {
 		$result = \Http::get( $fileUrl );
 
 		if ( !is_string( $result ) ) {

@@ -3,9 +3,11 @@
 namespace GitHub;
 
 use FileFetcher\CachingFileFetcher;
+use FileFetcher\FileFetcher;
 use FileFetcher\SimpleFileFetcher;
 use ParserHooks\FunctionRunner;
 use ParserHooks\HookDefinition;
+use ParserHooks\HookHandler;
 use ParserHooks\HookRegistrant;
 use SimpleCache\Cache\CombinatoryCache;
 use SimpleCache\Cache\MediaWikiCache;
@@ -24,7 +26,7 @@ class Setup {
 	private $gitHubUrl = 'https://cdn.rawgit.com';
 	private $gitHubFetcher = 'simple';
 
-	public function __construct( &$globals, $rootDirectory ) {
+	public function __construct( &$globals, string $rootDirectory ) {
 		$this->globals =& $globals;
 		$this->rootDirectory = $rootDirectory;
 	}
@@ -88,7 +90,7 @@ class Setup {
 		};
 	}
 
-	public function newFileFetcher() {
+	public function newFileFetcher(): FileFetcher {
 		return new CachingFileFetcher(
 			$this->gitHubFetcher === 'mediawiki' ? new MediaWikiFileFetcher() : new SimpleFileFetcher(),
 			new CombinatoryCache( array(
@@ -98,12 +100,7 @@ class Setup {
 		);
 	}
 
-	/**
-	 * @since 1.0
-	 *
-	 * @return HookDefinition
-	 */
-	public function getGitHubHookDefinition() {
+	public function getGitHubHookDefinition(): HookDefinition {
 		return new HookDefinition(
 			'github',
 			array(
@@ -150,8 +147,7 @@ class Setup {
 		);
 	}
 
-
-	public function getGitHubHookHandler() {
+	public function getGitHubHookHandler(): HookHandler {
 		return new GitHubParserHook(
 			$this->newFileFetcher(),
 			$this->gitHubUrl
