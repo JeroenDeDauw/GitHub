@@ -3,6 +3,7 @@
 namespace GitHub\Tests\Phpunit;
 
 use GitHub\Setup;
+use PHPUnit\Framework\TestCase;
 
 /**
  * @covers GitHub\Setup
@@ -10,7 +11,7 @@ use GitHub\Setup;
  * @licence GNU GPL v2+
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
-class SetupTest extends \PHPUnit_Framework_TestCase {
+class SetupTest extends TestCase {
 
 	public function testCanConstruct() {
 		$inputGlobals = array(

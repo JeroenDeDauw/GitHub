@@ -6,6 +6,7 @@ use FileFetcher\FileFetcher;
 use GitHub\GitHubParserHook;
 use ParamProcessor\ProcessedParam;
 use ParamProcessor\ProcessingResult;
+use PHPUnit\Framework\TestCase;
 
 /**
  * @covers GitHub\GitHubParserHook
@@ -13,7 +14,7 @@ use ParamProcessor\ProcessingResult;
  * @licence GNU GPL v2+
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
-class GitHubParserHookTest extends \PHPUnit_Framework_TestCase {
+class GitHubParserHookTest extends TestCase {
 
 	private $file;
 	private $repo;

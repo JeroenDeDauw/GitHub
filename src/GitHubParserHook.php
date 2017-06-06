@@ -30,16 +30,12 @@ class GitHubParserHook implements HookHandler {
 	private $syntaxHighlightHighlightedLines;
 	private $syntaxHighlightInlineSource;
 
-	/**
-	 * @param FileFetcher $fileFetcher
-	 * @param string $gitHubUrl
-	 */
-	public function __construct( FileFetcher $fileFetcher, $gitHubUrl ) {
+	public function __construct( FileFetcher $fileFetcher, string $gitHubUrl ) {
 		$this->fileFetcher = $fileFetcher;
 		$this->gitHubUrl = $gitHubUrl;
 	}
 
-	public function handle( Parser $parser, ProcessingResult $result ) {
+	public function handle( Parser $parser, ProcessingResult $result ): string {
 		$this->setFields( $result );
 
 		return $this->getRenderedContent( $parser );
@@ -59,7 +55,7 @@ class GitHubParserHook implements HookHandler {
 		$this->syntaxHighlightInlineSource = $params['inline']->getValue();
 	}
 
-	private function getRenderedContent( Parser $parser ) {
+	private function getRenderedContent( Parser $parser ): string {
 		$content = $this->getFileContent();
 
 		if ( $this->isMarkdownFile() ) {
@@ -89,7 +85,7 @@ class GitHubParserHook implements HookHandler {
 		return $content;
 	}
 
-	private function getFileContent() {
+	private function getFileContent(): string {
 		try {
 			return $this->fileFetcher->fetchFile( $this->getFileUrl() );
 		}
@@ -98,7 +94,7 @@ class GitHubParserHook implements HookHandler {
 		}
 	}
 
-	private function getFileUrl() {
+	private function getFileUrl(): string {
 		return sprintf(
 			'%s/%s/%s/%s',
 			$this->gitHubUrl,
@@ -108,16 +104,16 @@ class GitHubParserHook implements HookHandler {
 		);
 	}
 
-	private function isMarkdownFile() {
+	private function isMarkdownFile(): bool {
 		return $this->fileHasExtension( 'md' ) || $this->fileHasExtension( 'markdown' );
 	}
 
-	private function fileHasExtension( $extension ) {
+	private function fileHasExtension( string $extension ): bool {
 		$fullExtension = '.' . $extension;
 		return substr( $this->fileName, -strlen( $fullExtension ) ) === $fullExtension;
 	}
 
-	private function renderAsMarkdown( $content ) {
+	private function renderAsMarkdown( string $content ): string {
 		return Markdown::defaultTransform( $content );
 	}
 
