@@ -3,7 +3,6 @@
 namespace GitHub\Tests\System;
 
 use FileFetcher\FileFetcher;
-use GitHub\GitHubFetcher;
 use GitHub\GitHubParserHook;
 use ParamProcessor\ProcessedParam;
 use ParamProcessor\ProcessingResult;
@@ -38,7 +37,7 @@ class GitHubParserHookTest extends TestCase {
 	}
 
 	private function runHookWithFileFetcher( FileFetcher $fileFetcher ) {
-		$parserHook = new GitHubParserHook( new GitHubFetcher( $fileFetcher, 'https://cdn.rawgit.com' ) );
+		$parserHook = new GitHubParserHook( $fileFetcher, 'https://cdn.rawgit.com' );
 
 		$parser = $this->createMock( 'Parser' );
 		$params = $this->newParams();

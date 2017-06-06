@@ -149,8 +149,10 @@ class Setup {
 
 	public function getGitHubHookHandler(): HookHandler {
 		return new GitHubParserHook(
-			$this->newFileFetcher(),
-			$this->gitHubUrl
+			new GitHubFetcher(
+				$this->newFileFetcher(),
+				$this->gitHubUrl
+			)
 		);
 	}
 
