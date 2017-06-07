@@ -1,6 +1,7 @@
 ## GitHub extension for MediaWiki
 
 Simple MediaWiki extension for embedding content of files hosted in GitHub git repositories.
+It supports markdown rendering, syntax highlighting and caching.
 
 Build status:
 [![Build Status](https://secure.travis-ci.org/JeroenDeDauw/GitHub.png?branch=master)](http://travis-ci.org/JeroenDeDauw/GitHub)
@@ -164,6 +165,10 @@ The defaults are line=0, start=1, and inline=0 when this functionality is activa
 ### 0.1.0 (2013-07-15)
 
 * Initial release
+
+## Author
+
+The GitHub extension was created and is maintained by [Jeroen De Dauw](https://entropywins.wtf/).
 
 ## Links
 
