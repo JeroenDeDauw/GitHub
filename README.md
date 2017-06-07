@@ -13,8 +13,8 @@ On Packagist:
 
 ## Requirements
 
-* [PHP](http://www.php.net) 5.5 or later (HHVM and PHP 7 are supported)
-* [MediaWiki](https://www.mediawiki.org) 1.24 or
+* [PHP](http://www.php.net) 7.0 or later (use GitHub 1.2 for PHP 5.5 and 5.6)
+* [MediaWiki](https://www.mediawiki.org) 1.24 or later
 * Installation via [Composer](http://getcomposer.org/)
 
 ## Installation
@@ -110,7 +110,6 @@ The defaults are line=0, start=1, and inline=0 when this functionality is activa
 ### 1.3.0 (dev)
 
 * Dropped support for PHP < 7.0
-* Dropped support for MediaWiki < 1.27
 * Added `egGitHubRepositoryWhitelist` setting
 * Made code more robust in failure cases
 
