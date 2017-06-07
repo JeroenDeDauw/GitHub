@@ -13,13 +13,24 @@ class GitHubFetcher {
 
 	private $fileFetcher;
 	private $gitHubUrl;
+	private $repositoryWhitelist;
 
-	public function __construct( FileFetcher $fileFetcher, string $gitHubUrl ) {
+	/**
+	 * @param FileFetcher $fileFetcher
+	 * @param string $gitHubUrl
+	 * @param string[] $repositoryWhitelist Empty for no restrictions
+	 */
+	public function __construct( FileFetcher $fileFetcher, string $gitHubUrl, array $repositoryWhitelist ) {
 		$this->fileFetcher = $fileFetcher;
 		$this->gitHubUrl = $gitHubUrl;
+		$this->repositoryWhitelist = $repositoryWhitelist;
 	}
 
 	public function getFileContent( string $repoName, string $branchName, string $fileName ): string {
+		if ( !$this->repoIsAllowed( $repoName ) ) {
+			return '';
+		}
+
 		$url = $this->getFileUrl( $repoName, $branchName, $fileName );
 
 		try {
@@ -28,6 +39,11 @@ class GitHubFetcher {
 		catch ( FileFetchingException $ex ) {
 			return '';
 		}
+	}
+
+	private function repoIsAllowed( string $repoName ): bool {
+		return $this->repositoryWhitelist === []
+			|| in_array( $repoName, $this->repositoryWhitelist );
 	}
 
 	private function getFileUrl( string $repoName, string $branchName, string $fileName ): string {

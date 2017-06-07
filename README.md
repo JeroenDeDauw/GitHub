@@ -46,6 +46,25 @@ is used as secondary cache, with a default TTL of 600 seconds. You can use the
 
     $egGitHubCacheTime = 900;
 
+To restrict from which repositories files can be fetched, use the `egGitHubRepositoryWhitelist`
+setting. If this list is empty, which it is by default, users can fetch files from whatever
+wiki they specify. This means they can include potentially harmful content. The extension should
+escape harmful content; this setting adds an extra layer of security.
+
+To allow only files from a single repo:
+
+    $egGitHubRepositoryWhitelist = [
+        'SemanticMediaWiki/SemanticMediaWiki',
+    ];
+
+To allow files from multiple repos:
+
+    $egGitHubRepositoryWhitelist = [
+        'SemanticMediaWiki/SemanticMediaWiki',
+        'JeroenDeDauw/GitHub',
+        'JeroenDeDauw/Maps',
+    ];
+
 You can modify the GitHub raw content URL used to fetch the files. The default is
 `https://cdn.rawgit.com`, due to `https://raw.githubusercontent.com` not working on all systems.
 You can change this setting as follows:
@@ -92,6 +111,7 @@ The defaults are line=0, start=1, and inline=0 when this functionality is activa
 
 * Dropped support for PHP < 7.0
 * Dropped support for MediaWiki < 1.27
+* Added `egGitHubRepositoryWhitelist` setting
 * Made code more robust in failure cases
 
 ### 1.2.0 (2017-04-17)

@@ -20,7 +20,7 @@
 	"require": {
 		"php": ">=7.0",
 		"jeroen/simple-cache": "~2.0",
-		"jeroen/file-fetcher": "~4.1",
+		"jeroen/file-fetcher": "~4.2",
 		"mediawiki/parser-hooks": "~1.5",
 		"michelf/php-markdown": "~1.7",
 		"ezyang/htmlpurifier": "~4.9"

@@ -25,6 +25,7 @@ class Setup {
 	private $cacheTime = 600;
 	private $gitHubUrl = 'https://cdn.rawgit.com';
 	private $gitHubFetcher = 'simple';
+	private $repositoryWhitelist = [];
 
 	public function __construct( &$globals, string $rootDirectory ) {
 		$this->globals =& $globals;
@@ -67,6 +68,10 @@ class Setup {
 
 		if ( array_key_exists( 'egGitHubFetcher', $this->globals ) ) {
 			$this->gitHubFetcher = $this->globals['egGitHubFetcher'];
+		}
+
+		if ( array_key_exists( 'egGitHubRepositoryWhitelist', $this->globals ) ) {
+			$this->repositoryWhitelist = $this->globals['egGitHubRepositoryWhitelist'];
 		}
 	}
 
@@ -151,7 +156,8 @@ class Setup {
 		return new GitHubParserHook(
 			new GitHubFetcher(
 				$this->newFileFetcher(),
-				$this->gitHubUrl
+				$this->gitHubUrl,
+				$this->repositoryWhitelist
 			)
 		);
 	}

@@ -40,7 +40,7 @@ class GitHubParserHookTest extends TestCase {
 	}
 
 	private function runHookWithFileFetcher( FileFetcher $fileFetcher ) {
-		$parserHook = new GitHubParserHook( new GitHubFetcher( $fileFetcher, 'https://cdn.rawgit.com' ) );
+		$parserHook = new GitHubParserHook( new GitHubFetcher( $fileFetcher, 'https://cdn.rawgit.com', [] ) );
 
 		$parser = $this->createMock( 'Parser' );
 		$params = $this->newParams();
@@ -145,7 +145,7 @@ class GitHubParserHookTest extends TestCase {
 			->method( 'fetchFile' )
 			->will( $this->returnValue( '# Ohai there!' ) );
 
-		$parserHook = new GitHubParserHook( new GitHubFetcher( $fileFetcher, 'https://cdn.rawgit.com' ) );
+		$parserHook = new GitHubParserHook( new GitHubFetcher( $fileFetcher, 'https://cdn.rawgit.com', [] ) );
 
 		$parser = $this->createMock( 'Parser' );
 
