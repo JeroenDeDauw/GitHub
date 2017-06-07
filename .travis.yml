@@ -17,9 +17,9 @@ script: ../phase3/tests/phpunit/phpunit.php -c ../phase3/extensions/GitHub/phpun
 
 after_success:
   - if [[ "$TYPE" != "coverage" ]]; then exit 0; fi
-  - ../phase3/tests/phpunit/phpunit.php -c ../phase3/extensions/GitHub/phpunit.xml.dist --coverage-clover coverage.clover --with-phpunitclass "PHPUnit\TextUI\Command"
+  - ../phase3/tests/phpunit/phpunit.php -c ../phase3/extensions/GitHub/phpunit.xml.dist --coverage-clover /tmp/coverage.clover --with-phpunitclass "PHPUnit\TextUI\Command"
   - wget https://scrutinizer-ci.com/ocular.phar
-  - php ocular.phar code-coverage:upload --format=php-clover coverage.clover
+  - php ocular.phar code-coverage:upload --format=php-clover /tmp/coverage.clover
 
 cache:
   directories:
