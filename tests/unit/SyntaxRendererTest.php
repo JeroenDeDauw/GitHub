@@ -3,6 +3,7 @@
 namespace GitHub\Tests\Phpunit;
 
 use GitHub\SyntaxRenderer;
+use GitHub\Tests\MediaWikiBoundTestCase;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -11,7 +12,7 @@ use PHPUnit\Framework\TestCase;
  * @licence GNU GPL v2+
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
-class SyntaxRendererTest extends TestCase {
+class SyntaxRendererTest extends MediaWikiBoundTestCase {
 
 	private $language = 'bash';
 	private $enableLineNumbers = false;

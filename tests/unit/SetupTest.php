@@ -3,6 +3,7 @@
 namespace GitHub\Tests\Phpunit;
 
 use GitHub\Setup;
+use GitHub\Tests\MediaWikiBoundTestCase;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -11,7 +12,7 @@ use PHPUnit\Framework\TestCase;
  * @licence GNU GPL v2+
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
-class SetupTest extends TestCase {
+class SetupTest extends MediaWikiBoundTestCase {
 
 	public function testCanConstruct() {
 		$inputGlobals = array(

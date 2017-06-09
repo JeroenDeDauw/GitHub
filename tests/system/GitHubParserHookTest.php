@@ -5,6 +5,7 @@ namespace GitHub\Tests\System;
 use FileFetcher\FileFetcher;
 use GitHub\GitHubFetcher;
 use GitHub\GitHubParserHook;
+use GitHub\Tests\MediaWikiBoundTestCase;
 use ParamProcessor\ProcessedParam;
 use ParamProcessor\ProcessingResult;
 use PHPUnit\Framework\TestCase;
@@ -15,7 +16,7 @@ use PHPUnit\Framework\TestCase;
  * @licence GNU GPL v2+
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
-class GitHubParserHookTest extends TestCase {
+class GitHubParserHookTest extends MediaWikiBoundTestCase {
 
 	private $file;
 	private $repo;

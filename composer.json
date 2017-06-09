@@ -59,8 +59,8 @@
 			"parallel-lint . --exclude vendor"
 		],
 		"ci": [
-			"composer test",
-			"composer cs"
+			"@cs",
+			"@test"
 		]
 	}
 }

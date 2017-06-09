@@ -8,8 +8,7 @@
          stopOnError="false"
          stopOnFailure="false"
          stopOnIncomplete="false"
-         stopOnSkipped="false"
-         verbose="true">
+         stopOnSkipped="false">
     <testsuites>
         <testsuite name="GitHubStandalone">
             <directory>tests/unit</directory>
