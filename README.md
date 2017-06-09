@@ -168,7 +168,8 @@ The defaults are line=0, start=1, and inline=0 when this functionality is activa
 
 ## Running the tests
 
-To use MediaWiki vagrant, see [this gist](https://gist.github.com/JeroenDeDauw/bf61ebcc1ecfd338183cd61de55c7910)
+To use [MediaWiki vagrant](https://www.mediawiki.org/wiki/MediaWiki-Vagrant),
+see [this gist](https://gist.github.com/JeroenDeDauw/bf61ebcc1ecfd338183cd61de55c7910)
 which includes the steps needed to install PHP7 and run the MediaWiki test runner with PHPUnit 6+.
 
 To run code style checks and the tests that do not rely on MediaWiki, execute this in the base directory:
