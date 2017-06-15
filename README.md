@@ -108,6 +108,10 @@ The defaults are line=0, start=1, and inline=0 when this functionality is activa
 
 ## Release notes
 
+### 1.4.0 (2017-06-17)
+
+* Changed extension installation location from vendor to the MediaWiki extensions folder
+
 ### 1.3.0 (2017-06-09)
 
 * Dropped support for PHP < 7.0
