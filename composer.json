@@ -1,6 +1,6 @@
 {
 	"name": "jeroen/mediawiki-github",
-	"type": "library",
+	"type": "mediawiki-extension",
 	"description": "Simple MediaWiki extension for embedding GitHub hosted content in wiki pages. Supports markdown rendering and syntax highlighting.",
 	"keywords": [
 		"github",
