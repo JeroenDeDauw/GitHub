@@ -8,5 +8,10 @@
 	"github-desc": "Permite incorporar o conteúdo dos ficheiros do [https://www.github.com/ GitHub]",
 	"github-par-filename": "Nome do ficheiro",
 	"github-par-branchname": "Nome do ramo (<i>branch</i>)",
-	"github-par-reponame": "Nome do repositório"
+	"github-par-reponame": "Nome do repositório",
+	"github-par-lang": "Define o analisador lexical que será utilizado e afeta a forma como a extensão realça o código-fonte.",
+	"github-par-line": "Ativa a numeração de linhas",
+	"github-par-start": "Define o número de linha de começo do bloco de código. O atributo de linha deve estar ativo.",
+	"github-par-highlight": "Especifica que linhas devem ser realçadas. Podem ser indicados vários números separando-os com vírgulas.",
+	"github-par-inline": "Indica que o código-fonte deve estar em linha em vez de em formato de bloco."
 }

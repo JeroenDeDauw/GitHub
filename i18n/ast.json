@@ -7,5 +7,10 @@
 	"github-desc": "Permite incrustar el conteníu de ficheros de [https://www.github.com/ GitHub]",
 	"github-par-filename": "Nome del ficheru",
 	"github-par-branchname": "Nome de la rama",
-	"github-par-reponame": "Nome del repositoriu"
+	"github-par-reponame": "Nome del repositoriu",
+	"github-par-lang": "Define qué analís léxicu usar y afeuta a cómo resalta la estensión el códigu fonte.",
+	"github-par-line": "Activa la numberación de llinies",
+	"github-par-start": "Define'l númberu de llinia del principiu del bloque de códigu. L'atributu llinia tien de tar activáu.",
+	"github-par-highlight": "Especifica qué llinies tienen de tar resaltaes. Pué indicase más d'un númberu separándolos con comes.",
+	"github-par-inline": "Indica que'l códigu fonte tien de tar en formatu en llinia en llugar d'en bloque."
 }
