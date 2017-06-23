@@ -39,7 +39,9 @@ The default GitHub repo can be set using the `$egGitHubDefaultRepo` setting. Ass
 the name of the default repo in your LocalSettings file, after the inclusion of this extension e.g.
 for Semantic MediaWiki as follows:
 
-    $egGitHubDefaultRepo = 'SemanticMediaWiki/SemanticMediaWiki';
+```php
+$egGitHubDefaultRepo = 'SemanticMediaWiki/SemanticMediaWiki';
+```
 
 To restrict from which repositories files can be fetched, use the `egGitHubRepositoryWhitelist`
 setting. If this list is empty, which it is by default, users can fetch files from whatever
@@ -48,17 +50,21 @@ escape harmful content; this setting adds an extra layer of security.
 
 To allow only files from a single repo:
 
-    $egGitHubRepositoryWhitelist = [
-        'SemanticMediaWiki/SemanticMediaWiki',
-    ];
+```php
+$egGitHubRepositoryWhitelist = [
+    'SemanticMediaWiki/SemanticMediaWiki',
+];
+```
 
 To allow files from multiple repos:
 
-    $egGitHubRepositoryWhitelist = [
-        'SemanticMediaWiki/SemanticMediaWiki',
-        'JeroenDeDauw/GitHub',
-        'JeroenDeDauw/Maps',
-    ];
+```php
+$egGitHubRepositoryWhitelist = [
+    'SemanticMediaWiki/SemanticMediaWiki',
+    'JeroenDeDauw/GitHub',
+    'JeroenDeDauw/Maps',
+];
+```
 
 ### Syntax highlighting
 
@@ -71,7 +77,9 @@ The file contents gets cached in memory during the PHP request. The main MediaWi
 is used as secondary cache, with a default TTL of 600 seconds. You can use the
 `$egGitHubCacheTime` setting to change the TTL:
 
-    $egGitHubCacheTime = 900;
+```php
+$egGitHubCacheTime = 900;
+```
 
 You can modify which caching method is used. The supported methods are
 
@@ -80,7 +88,9 @@ You can modify which caching method is used. The supported methods are
 
 The default is `'full'`. You can change this setting as follows:
 
-    $egGitHubCache = 'none';
+```php
+$egGitHubCache = 'none';
+```
 
 ### Network
 
@@ -88,7 +98,9 @@ You can modify the GitHub raw content URL used to fetch the files. The default i
 `https://cdn.rawgit.com`, due to `https://raw.githubusercontent.com` not working on all systems.
 You can change this setting as follows:
 
-    $egGitHubUrl = 'https://raw.githubusercontent.com';
+```php
+$egGitHubUrl = 'https://raw.githubusercontent.com';
+```
 
 You can modify which method is used to fetch the file. The supported methods are
 
@@ -97,7 +109,9 @@ You can modify which method is used to fetch the file. The supported methods are
 
 The default is `'simple'`. You can change this setting as follows:
 
-    $egGitHubFetcher = 'mediawiki';
+```php
+$egGitHubFetcher = 'mediawiki';
+```
 
 ## Usage
 
