@@ -146,14 +146,14 @@ class Setup {
 					'message' => 'github-par-inline',
 					'type'    => 'boolean',
 				],
-			),
+			],
 			[
 				'file',
 				'repo',
 				'branch',
 				'lang'
 			]
-		];
+		);
 	}
 
 	public function getGitHubHookHandler(): HookHandler {
