@@ -139,6 +139,7 @@ The defaults are line=0, start=1, and inline=0 when this functionality is activa
 
 * Changed extension installation location from vendor to the MediaWiki extensions folder
 * Added `$egGitHubCache` setting, allowing for complete disabling of the cache
+* Added error logging of failed HTTP requests to GitHub 
 
 ### 1.3.0 (2017-06-09)
 
