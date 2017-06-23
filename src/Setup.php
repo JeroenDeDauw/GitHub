@@ -3,12 +3,16 @@
 namespace GitHub;
 
 use FileFetcher\CachingFileFetcher;
+use FileFetcher\ErrorLoggingFileFetcher;
 use FileFetcher\FileFetcher;
 use FileFetcher\SimpleFileFetcher;
+use MediaWiki\Logger\LegacyLogger;
 use ParserHooks\FunctionRunner;
 use ParserHooks\HookDefinition;
 use ParserHooks\HookHandler;
 use ParserHooks\HookRegistrant;
+use Psr\Log\LoggerInterface;
+use Psr\Log\NullLogger;
 use SimpleCache\Cache\CombinatoryCache;
 use SimpleCache\Cache\MediaWikiCache;
 use SimpleCache\Cache\SimpleInMemoryCache;
@@ -159,8 +163,21 @@ class Setup {
 
 	private function newFileFetcher(): FileFetcher {
 		return $this->newCachingFileFetcher(
-			$this->gitHubFetcher === 'mediawiki' ? new MediaWikiFileFetcher() : new SimpleFileFetcher()
+			$this->newLoggingFileFetcher(
+				$this->gitHubFetcher === 'mediawiki' ? new MediaWikiFileFetcher() : new SimpleFileFetcher()
+			)
 		);
+	}
+
+	private function newLoggingFileFetcher( FileFetcher $fileFetcher ): FileFetcher {
+		return new ErrorLoggingFileFetcher(
+			$fileFetcher,
+			$this->newLogger()
+		);
+	}
+
+	private function newLogger(): LoggerInterface {
+		return new LegacyLogger( 'GitHub-extension' );
 	}
 
 	private function newCachingFileFetcher( FileFetcher $fileFetcher ): FileFetcher {
