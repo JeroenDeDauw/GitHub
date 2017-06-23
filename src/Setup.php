@@ -25,6 +25,7 @@ class Setup {
 	private $cacheTime = 600;
 	private $gitHubUrl = 'https://cdn.rawgit.com';
 	private $gitHubFetcher = 'simple';
+	private $gitHubCache = 'full';
 	private $repositoryWhitelist = [];
 
 	public function __construct( &$globals, string $rootDirectory ) {
@@ -70,6 +71,10 @@ class Setup {
 			$this->gitHubFetcher = $this->globals['egGitHubFetcher'];
 		}
 
+		if ( array_key_exists( 'egGitHubCache', $this->globals ) ) {
+			$this->gitHubCache = $this->globals['egGitHubCache'];
+		}
+
 		if ( array_key_exists( 'egGitHubRepositoryWhitelist', $this->globals ) ) {
 			$this->repositoryWhitelist = $this->globals['egGitHubRepositoryWhitelist'];
 		}
@@ -93,16 +98,6 @@ class Setup {
 
 			return true;
 		};
-	}
-
-	public function newFileFetcher(): FileFetcher {
-		return new CachingFileFetcher(
-			$this->gitHubFetcher === 'mediawiki' ? new MediaWikiFileFetcher() : new SimpleFileFetcher(),
-			new CombinatoryCache( array(
-				new SimpleInMemoryCache(),
-				new MediaWikiCache( wfGetMainCache(), $this->cacheTime )
-			) )
-		);
 	}
 
 	public function getGitHubHookDefinition(): HookDefinition {
@@ -160,6 +155,26 @@ class Setup {
 				$this->repositoryWhitelist
 			)
 		);
+	}
+
+	private function newFileFetcher(): FileFetcher {
+		return $this->newCachingFileFetcher(
+			$this->gitHubFetcher === 'mediawiki' ? new MediaWikiFileFetcher() : new SimpleFileFetcher()
+		);
+	}
+
+	private function newCachingFileFetcher( FileFetcher $fileFetcher ): FileFetcher {
+		if ( $this->gitHubCache === 'full' ) {
+			return new CachingFileFetcher(
+				$fileFetcher,
+				new CombinatoryCache( array(
+					new SimpleInMemoryCache(),
+					new MediaWikiCache( wfGetMainCache(), $this->cacheTime )
+				) )
+			);
+		}
+
+		return $fileFetcher;
 	}
 
 }

@@ -41,12 +41,6 @@ for Semantic MediaWiki as follows:
 
     $egGitHubDefaultRepo = 'SemanticMediaWiki/SemanticMediaWiki';
 
-The file contents gets cached in memory during the PHP request. The main MediaWiki cache
-is used as secondary cache, with a default TTL of 600 seconds. You can use the
-`$egGitHubCacheTime` setting to change the TTL:
-
-    $egGitHubCacheTime = 900;
-
 To restrict from which repositories files can be fetched, use the `egGitHubRepositoryWhitelist`
 setting. If this list is empty, which it is by default, users can fetch files from whatever
 wiki they specify. This means they can include potentially harmful content. The extension should
@@ -66,6 +60,30 @@ To allow files from multiple repos:
         'JeroenDeDauw/Maps',
     ];
 
+### Syntax highlighting
+
+If you want code syntax highlighting you need to have the
+[SyntaxHighlight](https://www.mediawiki.org/wiki/Extension:SyntaxHighlight) extension enabled and configured. 
+    
+### Caching
+
+The file contents gets cached in memory during the PHP request. The main MediaWiki cache
+is used as secondary cache, with a default TTL of 600 seconds. You can use the
+`$egGitHubCacheTime` setting to change the TTL:
+
+    $egGitHubCacheTime = 900;
+
+You can modify which caching method is used. The supported methods are
+
+* `'full'` - use in memory and MediaWiki caches
+* `'none'` - do not do any caching
+
+The default is `'full'`. You can change this setting as follows:
+
+    $egGitHubCache = 'none';
+
+### Network
+
 You can modify the GitHub raw content URL used to fetch the files. The default is
 `https://cdn.rawgit.com`, due to `https://raw.githubusercontent.com` not working on all systems.
 You can change this setting as follows:
@@ -80,11 +98,6 @@ You can modify which method is used to fetch the file. The supported methods are
 The default is `'simple'`. You can change this setting as follows:
 
     $egGitHubFetcher = 'mediawiki';
-
-### Syntax highlighting
-
-If you want code syntax highlighting you need to have the
-[SyntaxHighlight](https://www.mediawiki.org/wiki/Extension:SyntaxHighlight) extension enabled and configured. 
 
 ## Usage
 
@@ -108,9 +121,10 @@ The defaults are line=0, start=1, and inline=0 when this functionality is activa
 
 ## Release notes
 
-### 1.4.0 (2017-06-17)
+### 1.4.0 (2017-06-24)
 
 * Changed extension installation location from vendor to the MediaWiki extensions folder
+* Added `$egGitHubCache` setting, allowing for complete disabling of the cache
 
 ### 1.3.0 (2017-06-09)
 
