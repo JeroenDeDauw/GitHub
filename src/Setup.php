@@ -45,17 +45,17 @@ class Setup {
 	}
 
 	private function registerExtensionCredits() {
-		$this->globals['wgExtensionCredits']['other'][] = array(
+		$this->globals['wgExtensionCredits']['other'][] = [
 			'path' => $this->rootDirectory . '/GitHub.php',
 			'name' => 'GitHub',
 			'version' => GitHub_VERSION,
-			'author' => array(
+			'author' => [
 				'[https://www.mediawiki.org/wiki/User:Jeroen_De_Dauw Jeroen De Dauw]',
-			),
+			],
 			'url' => 'https://github.com/JeroenDeDauw/GitHub',
 			'descriptionmsg' => 'github-desc',
 			'license-name' => 'GPL-2.0+'
-		);
+		];
 	}
 
 	private function loadSettings() {
@@ -107,48 +107,53 @@ class Setup {
 	public function getGitHubHookDefinition(): HookDefinition {
 		return new HookDefinition(
 			'github',
-			array(
-				'file' => array(
+			[
+				'file' => [
 					'default' => 'README.md',
 					'aliases' => 'filename',
 					'message' => 'github-par-filename',
-				),
-				'repo' => array(
+				],
+				'repo' => [
 					'default' => $this->defaultGitHubRepo,
 					'aliases' => 'reponame',
 					'message' => 'github-par-reponame',
-				),
-				'branch' => array(
+				],
+				'branch' => [
 					'default' => 'master',
 					'aliases' => 'branchname',
 					'message' => 'github-par-branchname',
-				),
-				'lang' => array(
+				],
+				'lang' => [
 					'default' => '',
 					'message' => 'github-par-lang',
-				),
-				'line' => array(
+				],
+				'line' => [
 					'default' => false,
 					'message' => 'github-par-line',
 					'type'    => 'boolean',
-				),
-				'start' => array(
+				],
+				'start' => [
 					'default' => 1,
 					'message' => 'github-par-start',
 					'type'    => 'integer',
-				),
-				'highlight' => array(
+				],
+				'highlight' => [
 					'default' => '',
 					'message' => 'github-par-highlight',
-				),
-				'inline' => array(
+				],
+				'inline' => [
 					'default' => false,
 					'message' => 'github-par-inline',
 					'type'    => 'boolean',
-				),
+				],
 			),
-			array( 'file', 'repo', 'branch', 'lang' )
-		);
+			[
+				'file',
+				'repo',
+				'branch',
+				'lang'
+			]
+		];
 	}
 
 	public function getGitHubHookHandler(): HookHandler {
