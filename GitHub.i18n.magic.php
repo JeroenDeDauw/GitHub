@@ -7,11 +7,11 @@
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
 
-$magicWords = array();
+$magicWords = [];
 
 /** English
  * @author Jeroen De Dauw
  */
-$magicWords['en'] = array(
-	'github' => array( 0, 'github' ),
-);
+$magicWords['en'] = [
+	'github' => [ 0, 'github' ],
+];

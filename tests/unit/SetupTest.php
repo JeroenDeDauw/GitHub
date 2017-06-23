@@ -15,10 +15,10 @@ use PHPUnit\Framework\TestCase;
 class SetupTest extends MediaWikiBoundTestCase {
 
 	public function testCanConstruct() {
-		$inputGlobals = array(
-			'wgExtensionCredits' => array( 'other' => array() ),
-			'wgHooks' => array( 'ParserFirstCallInit' => array() ),
-		);
+		$inputGlobals = [
+			'wgExtensionCredits' => [ 'other' => [] ],
+			'wgHooks' => [ 'ParserFirstCallInit' => [] ],
+		];
 
 		$setup = new Setup( $inputGlobals, __DIR__ . '/..' );
 		$setup->run();
