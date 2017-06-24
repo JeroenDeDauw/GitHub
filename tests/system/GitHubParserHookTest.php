@@ -50,7 +50,7 @@ class GitHubParserHookTest extends MediaWikiBoundTestCase {
 	}
 
 	private function newParams() {
-		return new ProcessingResult( array(
+		return new ProcessingResult( [
 			'file' => new ProcessedParam( 'file', $this->file, false ),
 			'repo' => new ProcessedParam( 'repo', $this->repo, false ),
 			'branch' => new ProcessedParam( 'branch', $this->branch, false ),
@@ -59,7 +59,7 @@ class GitHubParserHookTest extends MediaWikiBoundTestCase {
 			'start' => new ProcessedParam( 'start', 1, true ),
 			'highlight' => new ProcessedParam( 'highlight', '', true ),
 			'inline' => new ProcessedParam( 'inline', false, true ),
-		) );
+		] );
 	}
 
 	/**
@@ -70,20 +70,20 @@ class GitHubParserHookTest extends MediaWikiBoundTestCase {
 	}
 
 	public function makrdownProvider() {
-		return array(
-			array(
+		return [
+			[
 				'# Ohai there!',
 				"<h1>Ohai there!</h1>\n"
-			),
-			array(
+			],
+			[
 				'foo bar baz',
 				"<p>foo bar baz</p>\n"
-			),
-			array(
+			],
+			[
 				'foo bar baz<script>alert(\'Greetings from github\')</script>',
 				"<p>foo bar baz</p>\n"
-			)
-		);
+			]
+		];
 	}
 
 	private function assertFileContentRendersAs( $fileContent, $expectedRenderedResult ) {
@@ -99,24 +99,24 @@ class GitHubParserHookTest extends MediaWikiBoundTestCase {
 	}
 
 	public function nonMdProvider() {
-		return array(
-			array(
+		return [
+			[
 				'foo bar baz',
 				'Foo.php',
-			),
-			array(
+			],
+			[
 				'# Ohai there!',
 				'README.wikitext',
-			),
-			array(
+			],
+			[
 				'{ "you": { "can": "haz", "a": "json!" } }',
 				'composer.json',
-			),
-			array(
+			],
+			[
 				'{ "you": { "can": "haz", "a": "json!" } }',
 				'someFileWithoutExtension',
-			),
-		);
+			],
+		];
 	}
 
 	/**
