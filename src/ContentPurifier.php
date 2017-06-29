@@ -24,7 +24,8 @@ class ContentPurifier {
 		span,b,i,u,strong,em,
 		a[href|target],
 		img[src|alt],
-		table[class],thead,tbody,tr,th[scope],td[scope]
+		table[class],thead,tbody,tr,th[scope],td[scope],
+		code
 	';
 
 	public function __construct() {
