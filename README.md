@@ -135,6 +135,10 @@ The defaults are line=0, start=1, and inline=0 when this functionality is activa
 
 ## Release notes
 
+### 1.4.1 (2017-07-01)
+
+* `<pre>` HTML tags no longer get stripped out of the content
+
 ### 1.4.0 (2017-06-30)
 
 * Changed extension installation location from vendor to the MediaWiki extensions folder
