@@ -9,7 +9,9 @@
 	"github-par-filename": "Nome de ficheiro",
 	"github-par-branchname": "Nome da rama",
 	"github-par-reponame": "Nome do repositorio",
+	"github-par-lang": "Define o analizador léxico a usar o que inflúe en como a extensión resalta o código fonte.",
 	"github-par-line": "Activa a numeración das liñas",
 	"github-par-start": "Define o número de liña de comezo do bloque de código. O atributo de liña debe estar activo.",
-	"github-par-highlight": "Especifica que liñas deben estar resaltadas. Poden indicarse varios números separándoos por comas."
+	"github-par-highlight": "Especifica que liñas deben estar resaltadas. Poden indicarse varios números separándoos por comas.",
+	"github-par-inline": "Indique que o código fonte debe estar en liña en vez de formato de bloque."
 }
