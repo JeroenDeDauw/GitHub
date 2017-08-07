@@ -1,0 +1,16 @@
+{
+	"@metadata": {
+		"authors": [
+			"Ooswesthoesbes"
+		]
+	},
+	"github-desc": "Maak 't meugelik d'n inhaad van bestenjig oet [https://www.github.com/ GitHub] in te bèdde",
+	"github-par-filename": "Bestandjsnaam",
+	"github-par-branchname": "Taknaam",
+	"github-par-reponame": "Repositoirnaam",
+	"github-par-lang": "Bepaoltj welche lexer d'r mót gebroeke en beïnveludj wie de extensie de bróncode markeertj.",
+	"github-par-line": "Zèt liennómmere aan",
+	"github-par-start": "Bepaoltj 't beginliennómmer van 't codeblok. 't Lienattribuut mót aan staon.",
+	"github-par-highlight": "Specificeertj welche lien mótte waere gemarkeerdj. Mieëder nómmere kan me specificere mit komma's.",
+	"github-par-inline": "Geuf aan det de bróncode inliens mót zeen inplaats in blokformaot."
+}
