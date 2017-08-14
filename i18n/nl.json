@@ -5,11 +5,13 @@
 			"Esketti",
 			"Robin van der Vliet",
 			"Sjoerddebruin",
-			"Hex"
+			"Hex",
+			"Mainframe98"
 		]
 	},
 	"github-desc": "Maakt het mogelijk om de inhoud van bestanden uit [https://www.github.com/ GitHub] in te bedden",
 	"github-par-filename": "Bestandsnaam",
 	"github-par-branchname": "Branchnaam",
-	"github-par-reponame": "Repositorynaam"
+	"github-par-reponame": "Repositorynaam",
+	"github-par-line": "Regelnummers inschakelen"
 }
