@@ -1,11 +1,17 @@
 {
 	"@metadata": {
 		"authors": [
-			"Jon Harald Søby"
+			"Jon Harald Søby",
+			"Event"
 		]
 	},
 	"github-desc": "Tillater innbygging av innholdet til filer fra [https://www.github.com/ GitHub]",
 	"github-par-filename": "Filnavn",
 	"github-par-branchname": "Grennavn",
-	"github-par-reponame": "Repository-navn"
+	"github-par-reponame": "Repository-navn",
+	"github-par-lang": "Definerer hvilken lexer som blir brukt og påvirker hvordan utvidelsen fremhever kildekoden.",
+	"github-par-line": "Aktiverer linjenumre",
+	"github-par-start": "Definerer startlinje for kodeblokken. Linjeattributtet må aktiveres.",
+	"github-par-highlight": "Angir hvilke linjer som bør fremheves. Multiple numre kan angis adskilt av kommaer.",
+	"github-par-inline": "Angir at kildekoden burde være \"inline\" istedenfor i blokkformat."
 }
