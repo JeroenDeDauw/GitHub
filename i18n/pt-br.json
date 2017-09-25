@@ -1,0 +1,13 @@
+{
+	"@metadata": {
+		"authors": [
+			"Eduardo Addad de Oliveira",
+			"Felipe L. Ewald"
+		]
+	},
+	"github-par-filename": "Nome do arquivo",
+	"github-par-branchname": "Nome do ramo",
+	"github-par-reponame": "Nome do repositório",
+	"github-par-line": "Ativa a numeração de linhas",
+	"github-par-start": "Define o número da linha inicial do bloco de código. O atributo de linha deve estar habilitado."
+}
