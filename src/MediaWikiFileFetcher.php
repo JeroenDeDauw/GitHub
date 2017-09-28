@@ -18,7 +18,7 @@ class MediaWikiFileFetcher implements FileFetcher {
 			throw new FileFetchingException( $fileUrl );
 		}
 
-		return '';
+		return $result;
 	}
 
 }
