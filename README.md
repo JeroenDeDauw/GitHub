@@ -104,13 +104,13 @@ $egGitHubUrl = 'https://raw.githubusercontent.com';
 
 You can modify which method is used to fetch the file. The supported methods are
 
-* `'simple'` - use PHPs file_get_contents
 * `'mediawiki'` - use MediaWikis HTTP class
+* `'simple'` - use PHPs file_get_contents
 
-The default is `'simple'`. You can change this setting as follows:
+The default is `'mediawiki'`. You can change this setting as follows:
 
 ```php
-$egGitHubFetcher = 'mediawiki';
+$egGitHubFetcher = 'simple';
 ```
 
 ## Usage
@@ -134,6 +134,10 @@ The `lang` parameter can be specified as the fourth positional argument.
 The defaults are line=0, start=1, and inline=0 when this functionality is activated.
 
 ## Release notes
+
+### 1.4.2 (2017-09-28)
+
+* Fixed bug in the MediaWiki file fetching code and made it the default method again
 
 ### 1.4.1 (2017-07-01)
 
