@@ -4,8 +4,9 @@
 			"Otokoume"
 		]
 	},
-	"github-desc": "[https://www.github.com/ GitHub]からファイルの内容を埋め込むことができます",
+	"github-desc": "[https://www.github.com/ GitHub]からファイル内容の埋め込みを可能にする",
 	"github-par-filename": "ファイル名",
 	"github-par-branchname": "ブランチ名",
-	"github-par-reponame": "リポジトリ名"
+	"github-par-reponame": "リポジトリ名",
+	"github-par-line": "行番号を表示する"
 }
