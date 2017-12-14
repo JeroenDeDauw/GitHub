@@ -11,5 +11,7 @@
 	"github-par-reponame": "Nome do repositório",
 	"github-par-lang": "Define o que o lexer usa e afeta a forma como a extensão destaca o código-fonte.",
 	"github-par-line": "Ativa a numeração de linhas",
-	"github-par-start": "Define o número da linha inicial do bloco de código. O atributo de linha deve estar habilitado."
+	"github-par-start": "Define o número da linha inicial do bloco de código. O atributo de linha deve estar habilitado.",
+	"github-par-highlight": "Especifica que linhas devem ser realçadas. Podem ser indicados vários números separando-os com vírgulas.",
+	"github-par-inline": "Indica que o código-fonte deve estar em linha em vez de em formato de bloco."
 }
