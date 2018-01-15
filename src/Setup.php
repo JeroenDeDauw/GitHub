@@ -54,7 +54,7 @@ class Setup {
 			],
 			'url' => 'https://github.com/JeroenDeDauw/GitHub',
 			'descriptionmsg' => 'github-desc',
-			'license-name' => 'GPL-2.0+'
+			'license-name' => 'GPL-2.0-or-later'
 		];
 	}
 
