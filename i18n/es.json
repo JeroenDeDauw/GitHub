@@ -10,5 +10,6 @@
 	"github-par-filename": "Nombre del archivo",
 	"github-par-branchname": "Nombre de la rama",
 	"github-par-reponame": "Nombre del repositorio",
-	"github-par-line": "Activa la numeración de los renglones"
+	"github-par-line": "Activa la numeración de los renglones",
+	"github-par-inline": "Indica que el código fuente debe mostrarse en el mismo renglón y no en un párrafo aparte."
 }
