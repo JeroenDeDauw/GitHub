@@ -15,7 +15,7 @@ On Packagist:
 ## Requirements
 
 * [PHP](http://www.php.net) 7.0 or later
-* [MediaWiki](https://www.mediawiki.org) 1.24 or later
+* [MediaWiki](https://www.mediawiki.org) 1.27 or later
 * Installation via [Composer](http://getcomposer.org/)
 
 ## Installation
@@ -25,7 +25,7 @@ The recommended way to install the GitHub extension is with [Composer](http://ge
 
 In your MediaWiki root directory, you can execute:
 
-    composer require jeroen/mediawiki-github "~1.2"
+    composer require jeroen/mediawiki-github "~1.4"
     
 For more details on extension installation via Composer, see the documentation on MediaWiki.org.
 
