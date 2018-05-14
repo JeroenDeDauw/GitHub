@@ -2,11 +2,17 @@
 	"@metadata": {
 		"authors": [
 			"Citizen01",
-			"Cwlin0416"
+			"Cwlin0416",
+			"Kly"
 		]
 	},
 	"github-desc": "允許內嵌來自 [https://www.github.com/ GitHub] 的檔案內容",
 	"github-par-filename": "檔案名稱",
 	"github-par-branchname": "分支名稱",
-	"github-par-reponame": "儲存庫名稱"
+	"github-par-reponame": "儲存庫名稱",
+	"github-par-lang": "定義所要使用的詞法分析，來影響擴充功能對於原始碼的語法突顯。",
+	"github-par-line": "啟用行列數",
+	"github-par-start": "定義程式碼區塊的起始行列數。這需要啟用行屬性。",
+	"github-par-highlight": "指定需語法突顯的行列。可使用逗號分隔多個行列數。",
+	"github-par-inline": "指示原始碼應為行內而非區塊格式。"
 }
