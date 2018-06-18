@@ -8,5 +8,6 @@
 	"github-desc": "Pozwala na osadzanie zawartości plików z [https://www.github.com/ GitHub]",
 	"github-par-filename": "Nazwa pliku",
 	"github-par-branchname": "Nazwa gałęzi",
-	"github-par-reponame": "Nazwa repozytorium"
+	"github-par-reponame": "Nazwa repozytorium",
+	"github-par-line": "Włącza numery linii"
 }
