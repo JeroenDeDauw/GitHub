@@ -8,6 +8,9 @@
 	"github-par-filename": "Nome d'u file",
 	"github-par-branchname": "Nome d'u rame",
 	"github-par-reponame": "Nome de l'archivije",
+	"github-par-lang": "Definisce ce lexer a ausà e ce effette tène cumme l'estenzione ca evidenzie 'u codece sorgende.",
 	"github-par-line": "Abbilite le numere de righe",
+	"github-par-start": "Definisce 'u numere de righe addò accumenze 'u codece de blocche. L'attribbute de linèe adda essere abbilitate.",
+	"github-par-highlight": "Specifiche ce righe avessera essere evidenziate. Cchiù numere ponne essere specificate ausanne le virgole.",
 	"github-par-inline": "Indiche 'u codece sorgende ca avessa essere in linèe invece ca jndr'à 'nu formate a blocche."
 }
