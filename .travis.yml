@@ -3,7 +3,7 @@ language: php
 matrix:
   include:
     - env: DBTYPE=mysql; MW=master; TYPE=coverage
-      php: 7.1
+      php: 7.3
     - env: DBTYPE=mysql; MW=1.27.0
       php: 7.0
     - env: DBTYPE=sqlite; MW=1.28.0
