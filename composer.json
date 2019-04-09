@@ -18,9 +18,10 @@
 		}
 	],
 	"require": {
-		"php": ">=7.0",
+		"php": ">=7.1",
 		"jeroen/simple-cache": "~2.0",
-		"jeroen/file-fetcher": "~4.2",
+		"jeroen/file-fetcher": "~6.0",
+		"jeroen/file-fetcher-cache": "~1.0",
 		"mediawiki/parser-hooks": "~1.5",
 		"michelf/php-markdown": "~1.7",
 		"ezyang/htmlpurifier": "~4.9"
@@ -43,7 +44,7 @@
 	},
 	"extra": {
 		"branch-alias": {
-			"dev-master": "1.4.x-dev"
+			"dev-master": "1.5.x-dev"
 		}
 	},
 	"replace": {

@@ -2,7 +2,7 @@
 
 namespace GitHub;
 
-use FileFetcher\CachingFileFetcher;
+use FileFetcher\Cache\PackagePrivate\CachingFileFetcher;
 use FileFetcher\ErrorLoggingFileFetcher;
 use FileFetcher\FileFetcher;
 use FileFetcher\SimpleFileFetcher;
