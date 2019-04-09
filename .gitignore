@@ -1,5 +1,6 @@
 *~
 *.kate-swp
+.idea/
 
 !.travis.yml
 !.scrutinizer.yml

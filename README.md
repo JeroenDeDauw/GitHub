@@ -14,7 +14,7 @@ On Packagist:
 
 ## Requirements
 
-* [PHP](http://www.php.net) 7.0 or later
+* [PHP](http://www.php.net) 7.1 or later
 * [MediaWiki](https://www.mediawiki.org) 1.27 or later
 * Installation via [Composer](http://getcomposer.org/)
 
@@ -134,6 +134,11 @@ The `lang` parameter can be specified as the fourth positional argument.
 The defaults are line=0, start=1, and inline=0 when this functionality is activated.
 
 ## Release notes
+
+### 1.5.0 (2019-04-09)
+
+* Changed minimum PHP version to 7.1
+* Updated dependencies to increase compatibility
 
 ### 1.4.2 (2017-09-28)
 
