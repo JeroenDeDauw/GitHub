@@ -12,6 +12,8 @@ On Packagist:
 [![Latest Stable Version](https://poser.pugx.org/jeroen/mediawiki-github/version.png)](https://packagist.org/packages/jeroen/mediawiki-github)
 [![Latest Stable Version](https://poser.pugx.org/jeroen/mediawiki-github/d/total.png)](https://packagist.org/packages/jeroen/mediawiki-github)
 
+Professional support and custom development is available via [Professional.Wiki](https://professional.wiki/).
+
 ## Requirements
 
 * [PHP](http://www.php.net) 7.1 or later
