@@ -8,7 +8,7 @@
 	"github-desc": "Tillater innbygging av innholdet til filer fra [https://www.github.com/ GitHub]",
 	"github-par-filename": "Filnavn",
 	"github-par-branchname": "Grennavn",
-	"github-par-reponame": "Repository-navn",
+	"github-par-reponame": "Kodelagernavn",
 	"github-par-lang": "Definerer hvilken lexer som blir brukt og påvirker hvordan utvidelsen fremhever kildekoden.",
 	"github-par-line": "Aktiverer linjenumre",
 	"github-par-start": "Definerer startlinje for kodeblokken. Linjeattributtet må aktiveres.",
