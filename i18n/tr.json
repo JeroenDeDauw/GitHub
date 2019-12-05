@@ -1,0 +1,16 @@
+{
+	"@metadata": {
+		"authors": [
+			"BaRaN6161 TURK"
+		]
+	},
+	"github-desc": "Dosyaların içeriğini [https://www.github.com/ GitHub] adresinden gömmenizi sağlar",
+	"github-par-filename": "Dosya adı",
+	"github-par-branchname": "Dal adı",
+	"github-par-reponame": "Depo adı",
+	"github-par-lang": "Hangi Lexer'ı kullanacağını tanımlar ve uzantının kaynak kodu nasıl vurguladığını etkiler.",
+	"github-par-line": "Satır numaralarını etkinleştirir",
+	"github-par-start": "Kod bloğunun başlangıç satırı numarasını tanımlar. Satır özelliği etkinleştirilmelidir.",
+	"github-par-highlight": "Hangi satırların vurgulanması gerektiğini belirtir. Virgül kullanarak birden çok numara belirtilebilir.",
+	"github-par-inline": "Kaynak kodunun blok biçiminde yerine satır içi olması gerektiğini belirtir."
+}
