@@ -3,7 +3,8 @@
 		"authors": [
 			"Benjozork",
 			"Orikrin1998",
-			"Wladek92"
+			"Wladek92",
+			"Thibaut120094"
 		]
 	},
 	"github-desc": "Permet d'intégrer le contenu des fichiers à partir de [https://www.github.com/ GitHub]",
@@ -12,7 +13,7 @@
 	"github-par-reponame": "Nom du dépôt",
 	"github-par-lang": "Definit quel lexer utiliser at influe sur la mise en évidence de l'extension dans le code source.",
 	"github-par-line": "Active la numérotation des lignes",
-	"github-par-start": "Définit le numéro de la ligne du début du bloc de code. L'attribut de ligne doit être activé.",
+	"github-par-start": "Définit le numéro de la ligne du début du bloc de code. L’attribut de ligne doit être activé.",
 	"github-par-highlight": "Définit les lignes qui doivent être mises en valeur (utiliser la virgule comme séparateur de liste).",
 	"github-par-inline": "Indique que le code source doit être inséré au lieu d'être en format bloc."
 }
