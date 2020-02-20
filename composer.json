@@ -32,7 +32,9 @@
 		},
 		"files" : [
 			"GitHub.php"
-		],
+		]
+	},
+	"autoload-dev": {
 		"classmap": [
 			"tests/"
 		]
