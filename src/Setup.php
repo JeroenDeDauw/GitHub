@@ -51,6 +51,7 @@ class Setup {
 			'version' => GitHub_VERSION,
 			'author' => [
 				'[https://www.mediawiki.org/wiki/User:Jeroen_De_Dauw Jeroen De Dauw]',
+				'[https://professional.wiki/ Professional.Wiki]'
 			],
 			'url' => 'https://github.com/JeroenDeDauw/GitHub',
 			'descriptionmsg' => 'github-desc',
