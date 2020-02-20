@@ -98,7 +98,7 @@ $egGitHubCache = 'none';
 ### Network
 
 You can modify the GitHub raw content URL used to fetch the files. The default is
-`https://cdn.rawgit.com`, due to `https://raw.githubusercontent.com` not working on all systems.
+`https://rawcdn.githack.com`, due to `https://raw.githubusercontent.com` not working on all systems.
 You can change this setting as follows:
 
 ```php
@@ -137,6 +137,10 @@ The `lang` parameter can be specified as the fourth positional argument.
 The defaults are line=0, start=1, and inline=0 when this functionality is activated.
 
 ## Release notes
+
+### 1.5.X (2020-02-20)
+
+* Changed default GitHub raw content url to `https://rawcdn.githack.com` (thanks to lmn8)
 
 ### 1.5.0 (2019-04-09)
 

@@ -27,7 +27,7 @@ class Setup {
 	private $rootDirectory;
 	private $defaultGitHubRepo = 'JeroenDeDauw/GitHub';
 	private $cacheTime = 600;
-	private $gitHubUrl = 'https://cdn.rawgit.com';
+	private $gitHubUrl = 'https://rawcdn.githack.com';
 	private $gitHubFetcher = 'mediawiki';
 	private $gitHubCache = 'full';
 	private $repositoryWhitelist = [];
