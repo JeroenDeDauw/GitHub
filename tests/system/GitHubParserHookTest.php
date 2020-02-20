@@ -35,13 +35,13 @@ class GitHubParserHookTest extends MediaWikiBoundTestCase {
 
 		$fileFetcher->expects( $this->once() )
 			->method( 'fetchFile' )
-			->with( 'https://cdn.rawgit.com/JeroenDeDauw/GitHub/master/README.md' );
+			->with( 'https://rawcdn.githack.com/JeroenDeDauw/GitHub/master/README.md' );
 
 		$this->runHookWithFileFetcher( $fileFetcher );
 	}
 
 	private function runHookWithFileFetcher( FileFetcher $fileFetcher ) {
-		$parserHook = new GitHubParserHook( new GitHubFetcher( $fileFetcher, 'https://cdn.rawgit.com', [] ) );
+		$parserHook = new GitHubParserHook( new GitHubFetcher( $fileFetcher, 'https://rawcdn.githack.com', [] ) );
 
 		$parser = $this->createMock( 'Parser' );
 		$params = $this->newParams();
@@ -146,7 +146,7 @@ class GitHubParserHookTest extends MediaWikiBoundTestCase {
 			->method( 'fetchFile' )
 			->will( $this->returnValue( '# Ohai there!' ) );
 
-		$parserHook = new GitHubParserHook( new GitHubFetcher( $fileFetcher, 'https://cdn.rawgit.com', [] ) );
+		$parserHook = new GitHubParserHook( new GitHubFetcher( $fileFetcher, 'https://rawcdn.githack.com', [] ) );
 
 		$parser = $this->createMock( 'Parser' );
 
