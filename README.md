@@ -25,9 +25,10 @@ Professional support and custom development is available via [Professional.Wiki]
 The recommended way to install the GitHub extension is with [Composer](http://getcomposer.org) using
 [MediaWiki 1.22 built-in support for Composer](https://www.mediawiki.org/wiki/Composer).
 
-In your MediaWiki root directory, you can execute:
+In your MediaWiki root directory, you can execute these two commands:
 
-    composer require jeroen/mediawiki-github "~1.4"
+    COMPOSER=composer.local.json composer require --no-update jeroen/mediawiki-github "~1.4"
+    composer update jeroen/mediawiki-github --no-dev -o
     
 For more details on extension installation via Composer, see the documentation on MediaWiki.org.
 
