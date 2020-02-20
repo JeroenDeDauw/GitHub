@@ -4,7 +4,6 @@ namespace GitHub\Tests\Phpunit;
 
 use GitHub\SyntaxRenderer;
 use GitHub\Tests\MediaWikiBoundTestCase;
-use PHPUnit\Framework\TestCase;
 
 /**
  * @covers \GitHub\SyntaxRenderer

@@ -8,7 +8,6 @@ use GitHub\GitHubParserHook;
 use GitHub\Tests\MediaWikiBoundTestCase;
 use ParamProcessor\ProcessedParam;
 use ParamProcessor\ProcessingResult;
-use PHPUnit\Framework\TestCase;
 
 /**
  * @covers \GitHub\GitHubParserHook

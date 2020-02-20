@@ -4,7 +4,6 @@ namespace GitHub\Tests\Phpunit;
 
 use GitHub\Setup;
 use GitHub\Tests\MediaWikiBoundTestCase;
-use PHPUnit\Framework\TestCase;
 
 /**
  * @covers \GitHub\Setup

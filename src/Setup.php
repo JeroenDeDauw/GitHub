@@ -12,7 +12,6 @@ use ParserHooks\HookDefinition;
 use ParserHooks\HookHandler;
 use ParserHooks\HookRegistrant;
 use Psr\Log\LoggerInterface;
-use Psr\Log\NullLogger;
 use SimpleCache\Cache\CombinatoryCache;
 use SimpleCache\Cache\MediaWikiCache;
 use SimpleCache\Cache\SimpleInMemoryCache;
