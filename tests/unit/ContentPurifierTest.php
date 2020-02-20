@@ -6,7 +6,7 @@ use GitHub\ContentPurifier;
 use PHPUnit\Framework\TestCase;
 
 /**
- * @covers GitHub\ContentPurifier
+ * @covers \GitHub\ContentPurifier
  */
 class ContentPurifierTest extends TestCase {
 

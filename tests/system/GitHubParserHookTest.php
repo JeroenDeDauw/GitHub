@@ -11,7 +11,7 @@ use ParamProcessor\ProcessingResult;
 use PHPUnit\Framework\TestCase;
 
 /**
- * @covers GitHub\GitHubParserHook
+ * @covers \GitHub\GitHubParserHook
  *
  * @licence GNU GPL v2+
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >

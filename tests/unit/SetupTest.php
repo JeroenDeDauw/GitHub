@@ -7,7 +7,7 @@ use GitHub\Tests\MediaWikiBoundTestCase;
 use PHPUnit\Framework\TestCase;
 
 /**
- * @covers GitHub\Setup
+ * @covers \GitHub\Setup
  *
  * @licence GNU GPL v2+
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
