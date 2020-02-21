@@ -22,7 +22,7 @@ class GitHubParserHookTest extends MediaWikiBoundTestCase {
 	private $branch;
 	private $lang;
 
-	public function setUp() {
+	public function setUp(): void {
 		$this->file = 'README.md';
 		$this->repo = 'JeroenDeDauw/GitHub';
 		$this->branch = 'master';
