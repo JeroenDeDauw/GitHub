@@ -24,13 +24,26 @@ else
 fi
 
 cd extensions
-
-cp -r $originalDirectory GitHub
-
-cd GitHub
+cp -r $originalDirectory MediaWikiGitHub
+cd MediaWikiGitHub
 composer install --prefer-source
+cd ..
+cd ..
 
-cd ../..
+cat <<EOT >> composer.local.json
+{
+	"extra": {
+		"merge-plugin": {
+			"merge-dev": true,
+			"include": [
+				"extensions/*/composer.json"
+			]
+		}
+	}
+}
+EOT
+
+composer install --prefer-source
 
 echo 'error_reporting(E_ALL| E_STRICT);' >> LocalSettings.php
 echo 'ini_set("display_errors", 1);' >> LocalSettings.php
