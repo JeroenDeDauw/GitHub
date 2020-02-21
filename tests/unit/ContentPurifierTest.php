@@ -10,15 +10,6 @@ use PHPUnit\Framework\TestCase;
  */
 class ContentPurifierTest extends TestCase {
 
-	/**
-	 * @var ContentPurifier
-	 */
-	private $purifier;
-
-	public function setUp() {
-		$this->purifier = new ContentPurifier();
-	}
-
 	public function testReturnsAllAllowedTags() {
 		$this->assertSame(
 			'<h1>my <u>test</u> <em>site</em></h1>
@@ -33,7 +24,7 @@ dolor
 <a href="http://wikipedia.org" target="_blank" rel="noreferrer noopener">opening in new window, rel added by HtmlPurifier</a>
 amet
 <a href="http://wikimedia.de">ordinary link</a>',
-			$this->purifier->purify(
+			$this->newPurifier()->purify(
 				'<h1>my <u>test</u> <em>site</em></h1>
 <p>lorem</p>
 <ul>
@@ -53,15 +44,19 @@ amet
 		);
 	}
 
+	private function newPurifier(): ContentPurifier {
+		return new ContentPurifier();
+	}
+
 	public function testStripsDisallowedTags() {
-		$this->assertSame( 'invalid div', $this->purifier->purify( '<div>invalid div</div>' ) );
+		$this->assertSame( 'invalid div', $this->newPurifier()->purify( '<div>invalid div</div>' ) );
 	}
 
 	public function testRepairsDamagedTags() {
-		$this->assertSame( '<p>dangling paragraph</p>', $this->purifier->purify( '<p>dangling paragraph' ) );
+		$this->assertSame( '<p>dangling paragraph</p>', $this->newPurifier()->purify( '<p>dangling paragraph' ) );
 	}
 
 	public function testRemovesInvalidAttributes() {
-		$this->assertSame( '<p>BIG</p>', $this->purifier->purify( '<p style="font-size:100000px">BIG</p>' ) );
+		$this->assertSame( '<p>BIG</p>', $this->newPurifier()->purify( '<p style="font-size:100000px">BIG</p>' ) );
 	}
 }
