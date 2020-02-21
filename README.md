@@ -138,9 +138,9 @@ The defaults are line=0, start=1, and inline=0 when this functionality is activa
 
 ## Release notes
 
-### 1.5.X (2020-02-20)
+### 1.6.0 (2020-02-21)
 
-* Changed default GitHub raw content url to `https://rawcdn.githack.com` (thanks to lmn8)
+* Changed default GitHub raw content url to `https://rawcdn.githack.com` (thanks to @lmn8)
 
 ### 1.5.0 (2019-04-09)
 
