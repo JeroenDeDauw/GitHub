@@ -1,9 +1,9 @@
 {
 	"@metadata": {
 		"authors": [
-			"Littledogboy",
 			"Aktron",
-			"Clon"
+			"Clon",
+			"Littledogboy"
 		]
 	},
 	"github-desc": "Umožňuje vkládání obsahu souborů z [https://www.github.com/ GitHubu]",

@@ -1,8 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Jon Harald Søby",
-			"Event"
+			"Event",
+			"Jon Harald Søby"
 		]
 	},
 	"github-desc": "Tillater innbygging av innholdet til filer fra [https://www.github.com/ GitHub]",

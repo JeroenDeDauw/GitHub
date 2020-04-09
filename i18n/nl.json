@@ -1,12 +1,12 @@
 {
 	"@metadata": {
 		"authors": [
-			"Robin0van0der0vliet",
 			"Esketti",
-			"Robin van der Vliet",
-			"Sjoerddebruin",
 			"Hex",
-			"Mainframe98"
+			"Mainframe98",
+			"Robin van der Vliet",
+			"Robin0van0der0vliet",
+			"Sjoerddebruin"
 		]
 	},
 	"github-desc": "Maakt het mogelijk om de inhoud van bestanden uit [https://www.github.com/ GitHub] in te bedden",

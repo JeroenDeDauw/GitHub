@@ -1,9 +1,9 @@
 {
 	"@metadata": {
 		"authors": [
-			"Obsuser",
 			"Acamicamacaraca",
-			"BadDog"
+			"BadDog",
+			"Obsuser"
 		]
 	},
 	"github-desc": "Омогућава уграђивање садржаја датотека са [https://www.github.com/ GitHub]-а",

@@ -1,9 +1,9 @@
 {
 	"@metadata": {
 		"authors": [
-			"Macofe",
 			"Fitoschido",
-			"Luzcaru"
+			"Luzcaru",
+			"Macofe"
 		]
 	},
 	"github-desc": "Permite incrustar el contenido de archivos alojados en [https://www.github.com/ GitHub]",

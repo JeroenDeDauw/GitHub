@@ -1,8 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Okras",
-			"Alexey zakharenkov"
+			"Alexey zakharenkov",
+			"Okras"
 		]
 	},
 	"github-desc": "Позволяет встраивать содержимое файлов с [https://www.github.com/ на GitHub]",
