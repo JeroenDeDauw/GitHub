@@ -2,10 +2,11 @@
 	"@metadata": {
 		"authors": [
 			"Alexey zakharenkov",
+			"Helpau",
 			"Okras"
 		]
 	},
-	"github-desc": "Позволяет встраивать содержимое файлов с [https://www.github.com/ на GitHub]",
+	"github-desc": "Позволяет встраивать содержимое файлов с [https://www.github.com/ GitHub]",
 	"github-par-filename": "Имя файла",
 	"github-par-branchname": "Название ветки (branch)",
 	"github-par-reponame": "Название репозитория",
