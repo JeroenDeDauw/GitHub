@@ -1,9 +1,9 @@
 ## GitHub extension for MediaWiki
 
+**If you need only markdown rendering, please use the [External Content extension](https://github.com/ProfessionalWiki/ExternalContent) instead.**
+
 Simple MediaWiki extension for embedding content of files hosted in GitHub git repositories.
 It supports markdown rendering, syntax highlighting and caching.
-
-If you need only markdown rendering, please use the [External Content extension](https://github.com/ProfessionalWiki/ExternalContent) instead.
 
 Build status:
 [![Build Status](https://secure.travis-ci.org/JeroenDeDauw/GitHub.png?branch=master)](http://travis-ci.org/JeroenDeDauw/GitHub)
